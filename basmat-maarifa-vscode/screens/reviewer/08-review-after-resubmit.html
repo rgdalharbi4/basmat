@@ -1,0 +1,492 @@
+<!DOCTYPE html><html dir="rtl" lang="ar" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>بصمة معرفة - مراجعة المعرفة</title>
+<!-- Google Fonts: IBM Plex Sans Arabic -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#075844',
+              'green-dark': '#053f31',
+              'green-light': '#f0f7f4',
+              gold: '#DCAF38',
+              'gold-hover': '#c99e2f',
+              'gold-light': '#fdfaf2',
+              border: '#E2E8F0',
+            }
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #FAFAFA;
+      color: #1E293B;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+<!-- BEGIN: MainHeader -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-xs">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Right Side: Brand Logo -->
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-[#075844] flex items-center justify-center text-[#DCAF38] shadow-sm">
+<!-- Fingerprint Stylized Icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 2a10 10 0 0 0-10 10c0 4.4 2.9 8.2 7 9.5"></path>
+<path d="M12 6a6 6 0 0 0-6 6c0 3.3 2.1 6.2 5.2 7.1"></path>
+<path d="M12 10a2 2 0 0 0-2 2c0 2 1.4 3.7 3.3 4.2"></path>
+<path d="M14 12a4 4 0 0 1-4 4"></path>
+<path d="M18 12a8 8 0 0 1-5.3 7.6"></path>
+<path d="M22 12c0 5.5-4.5 10-10 10"></path>
+</svg>
+</div>
+<span class="text-2xl font-bold tracking-tight text-[#075844]">بصمة معرفة</span>
+</div>
+<!-- Left Side: User Profile & Actions -->
+<div class="flex items-center gap-4">
+<!-- User Profile Pill -->
+<div class="flex items-center gap-3 bg-gray-50/80 hover:bg-gray-100/80 transition-colors px-3.5 py-1.5 rounded-full border border-gray-200">
+<div class="w-8 h-8 rounded-full bg-[#075844]/10 text-[#075844] flex items-center justify-center">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+</div>
+<span class="text-sm font-semibold text-gray-800">مرحبًا، ريم</span>
+<span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-[#075844]/10 text-[#075844] border border-[#075844]/20">
+            مراجع معرفي
+          </span>
+</div>
+<!-- Notification Bell -->
+<button aria-label="التنبيهات" class="relative p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-2 right-2 w-2 h-2 bg-[#DCAF38] rounded-full ring-2 ring-white"></span>
+</button>
+<!-- Divider -->
+<div class="h-6 w-px bg-gray-300"></div>
+<!-- Logout Button -->
+<button class="flex items-center gap-2 bg-[#DCAF38] hover:bg-[#c99e2f] text-gray-900 font-semibold text-sm px-4 py-2.5 rounded-lg shadow-xs transition-colors">
+<svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">تسجيل الخروج</span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow max-w-7xl w-full mx-auto px-6 py-8">
+<!-- Navigation / Breadcrumbs & Back Button -->
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+<!-- Breadcrumb -->
+<nav class="flex items-center text-sm font-medium text-gray-500 gap-2">
+<a class="hover:text-[#075844] transition-colors" href="#">الرئيسية</a>
+<svg class="w-4 h-4 text-gray-400 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<a class="hover:text-[#075844] transition-colors" href="#">مراجعة المعارف</a>
+<svg class="w-4 h-4 text-gray-400 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[#075844] font-bold">مراجعة المعرفة</span>
+</nav>
+<!-- Back Link -->
+<a class="inline-flex items-center gap-2 text-sm font-semibold text-[#075844] hover:text-[#053f31] bg-[#075844]/5 hover:bg-[#075844]/10 px-3.5 py-1.5 rounded-md transition-all" href="#">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">العودة إلى قائمة المعارف</span>
+</a>
+</div>
+<!-- Header Title Section -->
+<div class="mb-8">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-8 bg-[#075844] rounded-full inline-block"></span>
+<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">مراجعة المعرفة</h1>
+</div>
+<p class="text-gray-600 mt-2 text-base pr-5">راجع محتوى المعرفة وحدد تصنيفها ولائحتها قبل اعتمادها ونشرها.</p>
+</div>
+<!-- Knowledge Metadata Overview Card -->
+<section class="bg-white border-2 border-[#DCAF38]/70 rounded-2xl p-6 shadow-xs mb-8 transition-all hover:border-[#DCAF38]" data-purpose="knowledge-overview-card">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-5 mb-5">
+<div>
+<span class="text-xs font-semibold text-gray-400 tracking-wider">عنوان المعرفة المراجعة</span>
+<h2 class="text-xl font-bold text-gray-900 mt-1">طلب تثبيت برنامج غير معتمد على جهاز الموظف</h2>
+</div>
+<!-- Status Badges -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#DCAF38]/15 text-amber-900 border border-[#DCAF38]/40">
+<span class="w-2 h-2 rounded-full bg-[#DCAF38]"></span>
+            قيد المراجعة
+          </span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200">
+            تحتاج إلى تصنيف واعتماد
+          </span>
+</div>
+</div>
+<!-- Employee Metadata Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+<!-- Field 1 -->
+<div class="flex items-center gap-3 bg-gray-50/70 p-3 rounded-xl border border-gray-100">
+<div class="p-2 rounded-lg bg-emerald-50 text-[#075844]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<span class="text-xs text-gray-500 block">اسم الموظف</span>
+<span class="font-bold text-gray-800">سارة العمري</span>
+</div>
+</div>
+<!-- Field 2 -->
+<div class="flex items-center gap-3 bg-gray-50/70 p-3 rounded-xl border border-gray-100">
+<div class="p-2 rounded-lg bg-emerald-50 text-[#075844]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<span class="text-xs text-gray-500 block">الرقم الوظيفي</span>
+<span class="font-bold text-gray-800">١٠٢٣٤</span>
+</div>
+</div>
+<!-- Field 3 -->
+<div class="flex items-center gap-3 bg-gray-50/70 p-3 rounded-xl border border-gray-100">
+<div class="p-2 rounded-lg bg-emerald-50 text-[#075844]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<span class="text-xs text-gray-500 block">الإدارة</span>
+<span class="font-bold text-gray-800">إدارة تقنية المعلومات</span>
+</div>
+</div>
+<!-- Field 4 -->
+<div class="flex items-center gap-3 bg-gray-50/70 p-3 rounded-xl border border-gray-100">
+<div class="p-2 rounded-lg bg-emerald-50 text-[#075844]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<span class="text-xs text-gray-500 block">تاريخ الإرسال</span>
+<span class="font-bold text-gray-800">١١ ربيع الثاني ١٤٤٨هـ</span>
+</div>
+</div>
+</div>
+</section>
+<!-- BEGIN: KnowledgeContentSection -->
+<section class="mb-10">
+<div class="flex items-center gap-2 mb-4">
+<svg class="w-5 h-5 text-[#075844]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<h3 class="text-lg font-bold text-gray-900">محتوى المعرفة</h3>
+</div>
+<!-- 4 Read-only Answer Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Card 1 -->
+<div class="bg-white border border-gray-200 rounded-xl p-5 shadow-2xs hover:shadow-xs transition-shadow">
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-3">
+<span class="text-sm font-bold text-[#075844] flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#075844]/10 text-xs flex items-center justify-center font-bold">١</span>
+              ما الموقف أو التحدي؟
+            </span>
+<span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">نص الإجابة</span>
+</div>
+<p class="text-gray-700 leading-relaxed font-normal bg-gray-50/60 p-3.5 rounded-lg border border-gray-100">
+            موظف يحتاج برنامجًا للعمل ولا يستطيع تثبيته لأنه لا يملك الصلاحية.
+          </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-gray-200 rounded-xl p-5 shadow-2xs hover:shadow-xs transition-shadow">
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-3">
+<span class="text-sm font-bold text-[#075844] flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#075844]/10 text-xs flex items-center justify-center font-bold">٢</span>
+              كيف تعاملت معه؟
+            </span>
+<span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">نص الإجابة</span>
+</div>
+<p class="text-gray-700 leading-relaxed font-normal bg-gray-50/60 p-3.5 rounded-lg border border-gray-100">
+            طلبت منه رفع طلب رسمي بدلًا من التثبيت المباشر، مع توضيح سبب الحاجة إلى البرنامج.
+          </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-gray-200 rounded-xl p-5 shadow-2xs hover:shadow-xs transition-shadow">
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-3">
+<span class="text-sm font-bold text-[#075844] flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#075844]/10 text-xs flex items-center justify-center font-bold">٣</span>
+              ما الحل الذي نجح؟
+            </span>
+<span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">نص الإجابة</span>
+</div>
+<div class="flex flex-col gap-2.5"><div class="flex items-start gap-3 bg-gray-50/70 p-3 rounded-lg border border-gray-100"><span class="w-6 h-6 rounded-full bg-[#075844] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">١</span><span class="text-sm text-gray-700 leading-relaxed">استلام طلب رسمي من الموظف يوضح اسم البرنامج وسبب الحاجة إليه.</span></div><div class="flex items-start gap-3 bg-gray-50/70 p-3 rounded-lg border border-gray-100"><span class="w-6 h-6 rounded-full bg-[#075844] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">٢</span><span class="text-sm text-gray-700 leading-relaxed">التحقق من أن البرنامج مناسب لمتطلبات العمل وعدم وجود بديل معتمد له.</span></div><div class="flex items-start gap-3 bg-gray-50/70 p-3 rounded-lg border border-gray-100"><span class="w-6 h-6 rounded-full bg-[#075844] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">٣</span><span class="text-sm text-gray-700 leading-relaxed">إرسال البرنامج إلى أمن المعلومات لمراجعته والتأكد من سلامته.</span></div><div class="flex items-start gap-3 bg-gray-50/70 p-3 rounded-lg border border-gray-100"><span class="w-6 h-6 rounded-full bg-[#075844] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">٤</span><span class="text-sm text-gray-700 leading-relaxed">بعد الموافقة، تثبيت البرنامج على جهاز الموظف بواسطة الجهة التقنية المختصة.</span></div></div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-gray-200 rounded-xl p-5 shadow-2xs hover:shadow-xs transition-shadow">
+<div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-3">
+<span class="text-sm font-bold text-[#075844] flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#075844]/10 text-xs flex items-center justify-center font-bold">٤</span>
+              ما الدرس المستفاد؟
+            </span>
+<span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">نص الإجابة</span>
+</div>
+<p class="text-gray-700 leading-relaxed font-normal bg-gray-50/60 p-3.5 rounded-lg border border-gray-100">
+            كل برنامج جديد يجب أن يمر بطلب رسمي ومراجعة أمنية، حتى لو كان الموظف مستعجلًا.
+          </p>
+</div>
+</div>
+</section>
+<!-- END: KnowledgeContentSection -->
+<!-- Classification, Keywords and Reference Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+<!-- BEGIN: ClassificationSection -->
+<section class="lg:col-span-2 bg-white border border-gray-200 rounded-2xl p-6 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#075844]"></span>
+<h3 class="text-base font-bold text-gray-900">تصنيف المعرفة</h3>
+</div>
+<span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md">مطلوب التحديد</span>
+</div>
+<p class="text-xs text-gray-500 mb-4">اختر تصنيفًا واحدًا مناسبًا للمعرفة.</p>
+<!-- Classification Options (Interactive single-select radios) -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<!-- Option 1: حل -->
+<label class="classification-card cursor-pointer border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:border-[#075844]/40 hover:bg-[#075844]/5">
+<input class="sr-only peer" name="knowledge_type" type="radio" value="حل">
+<div class="w-8 h-8 rounded-full bg-gray-100 peer-checked:bg-[#075844] peer-checked:text-white flex items-center justify-center text-gray-600 transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-gray-800 peer-checked:text-[#075844]">حل</span>
+</label>
+<!-- Option 2: إجراء -->
+<label class="classification-card cursor-pointer border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:border-[#075844]/40 hover:bg-[#075844]/5">
+<input class="sr-only peer" name="knowledge_type" type="radio" value="إجراء">
+<div class="w-8 h-8 rounded-full bg-gray-100 peer-checked:bg-[#075844] peer-checked:text-white flex items-center justify-center text-gray-600 transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-gray-800 peer-checked:text-[#075844]">إجراء</span>
+</label>
+<!-- Option 3: تجربة -->
+<label class="classification-card cursor-pointer border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:border-[#075844]/40 hover:bg-[#075844]/5">
+<input class="sr-only peer" name="knowledge_type" type="radio" value="تجربة">
+<div class="w-8 h-8 rounded-full bg-gray-100 peer-checked:bg-[#075844] peer-checked:text-white flex items-center justify-center text-gray-600 transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-gray-800 peer-checked:text-[#075844]">تجربة</span>
+</label>
+<!-- Option 4: درس مستفاد -->
+<label class="classification-card cursor-pointer border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:border-[#075844]/40 hover:bg-[#075844]/5">
+<input class="sr-only peer" name="knowledge_type" type="radio" value="درس مستفاد">
+<div class="w-8 h-8 rounded-full bg-gray-100 peer-checked:bg-[#075844] peer-checked:text-white flex items-center justify-center text-gray-600 transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-gray-800 peer-checked:text-[#075844]">درس مستفاد</span>
+</label>
+</div>
+</div>
+<!-- Section: الكلمات المفتاحية -->
+
+</section>
+<!-- END: ClassificationSection -->
+<!-- BEGIN: PolicyReferenceSection -->
+<section class="bg-white border border-gray-200 rounded-2xl p-6 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-4"><div class="flex items-center justify-between w-full"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#075844]"></span><h3 class="text-base font-bold text-gray-900">اللائحة المرتبطة</h3></div><span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md">إلزامي</span></div></div>
+<p class="text-xs text-gray-500 mb-3">يجب ربط كل معرفة بلائحة معتمدة قبل نشرها.</p>
+<!-- Reference Dropdown -->
+<div class="relative">
+<select class="w-full appearance-none bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-xl focus:ring-[#075844] focus:border-[#075844] block p-3 pr-4 pl-10 cursor-pointer" id="policy-select">
+<option value="cybersecurity">سياسة أمن المعلومات</option>
+<option selected="" value="devices_and_software">سياسة استخدام الأجهزة والبرمجيات</option>
+<option value="it_assets">لائحة إدارة الأصول التقنية</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Document Direct Link -->
+<div class="mt-4 p-3 bg-[#075844]/5 border border-[#075844]/15 rounded-xl">
+<a class="inline-flex items-center gap-2 text-xs font-bold text-[#075844] hover:text-[#053f31] hover:underline" href="https://example.com/nuzum/devices" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">فتح سياسة استخدام الأجهزة والبرمجيات</span>
+</a>
+<span class="block text-[11px] text-gray-500 mt-1">الرابط يفتح الوثيقة الرسمية في بوابة اللوائح والأنظمة.</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-400">
+<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">الربط يساعد الموظفين على فهم المعيار المتبع.</span>
+</div>
+</section>
+<!-- END: PolicyReferenceSection -->
+</div>
+<!-- BEGIN: ReviewerActionFooter -->
+<section class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3 text-sm text-gray-600">
+<svg class="w-5 h-5 text-[#DCAF38] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">يرجى اختيار تصنيف المعرفة واللائحة المرتبطة قبل النشر.</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<!-- Return for Modification (Secondary White with Golden Border) -->
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white hover:bg-amber-50 text-gray-800 font-bold px-6 py-3 rounded-xl border-2 border-[#DCAF38] transition-all shadow-2xs active:scale-[0.99]" id="btn-return">
+<svg class="w-5 h-5 text-[#DCAF38]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 10h10a5 5 0 015 5v2m0 0l-4-4m4 4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+<span class="">إرجاع للتعديل</span>
+</button>
+<!-- Approve and Publish (Primary Green) -->
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-gray-200 text-gray-400 font-bold px-8 py-3 rounded-xl transition-all shadow-xs cursor-not-allowed" id="btn-approve" disabled=""><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg><span class="">اعتماد ونشر</span></button>
+</div>
+</section>
+<!-- END: ReviewerActionFooter -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: PageFooter -->
+<footer class="bg-white border-t border-gray-200 mt-12 py-6 text-center text-xs text-gray-500">
+<div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+<p class="">© ١٤٤٨هـ منصة بصمة معرفة. جميع الحقوق محفوظة.</p>
+<div class="flex items-center gap-4">
+<a class="hover:underline" href="#">سياسة الخصوصية</a>
+<span class="">•</span>
+<a class="hover:underline" href="#">دليل الاستخدام للمراجع</a>
+<span class="">•</span>
+<a class="hover:underline" href="#">الدعم الفني</a>
+</div>
+</div>
+</footer>
+<!-- END: PageFooter -->
+<!-- BEGIN: Modals -->
+<!-- Return Modal Dialog -->
+<div class="fixed inset-0 bg-gray-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50" id="modal-return">
+<div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 animate-in fade-in zoom-in duration-150"><div class="flex items-center justify-between pb-4 border-b border-gray-100"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-full bg-[#075844]/10 text-[#075844] flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M3 10h10a5 5 0 015 5v2m0 0l-4-4m4 4l4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><h4 class="text-lg font-bold text-[#075844]">إرجاع المعرفة للتعديل</h4></div><button class="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors" id="btn-close-modal-return" aria-label="إغلاق"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div><div class="my-5"><p class="text-sm text-gray-600 mb-4 font-normal leading-relaxed">وضّح للموظف التعديلات المطلوبة قبل إعادة إرسال المعرفة للمراجعة.</p><div class="mb-2 flex items-center justify-between"><label class="text-sm font-bold text-gray-800" for="return-reason">سبب الإرجاع</label><span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md font-medium">إلزامي</span></div><textarea class="w-full rounded-xl border border-gray-300 p-3.5 text-sm text-gray-800 placeholder-gray-400 focus:ring-[#075844] focus:border-[#075844] leading-relaxed" id="return-reason" placeholder="مثال: يرجى توضيح خطوات الحل بصورة أكثر تفصيلًا وربطها باللائحة المناسبة." rows="4"></textarea></div><div class="flex items-center justify-end gap-3 pt-4 border-t border-gray-100"><button class="px-6 py-2.5 rounded-xl border-2 border-[#075844] text-[#075844] bg-white hover:bg-[#075844]/5 text-sm font-bold transition-colors" id="btn-cancel-return">إلغاء</button><button class="px-6 py-2.5 rounded-xl bg-[#DCAF38] hover:bg-[#c99e2f] text-[#075844] text-sm font-bold shadow-xs transition-colors flex items-center gap-2" id="btn-confirm-return"><svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="">إرسال الملاحظة</span></button></div></div>
+</div>
+<!-- Success Notification Alert (Toast/Modal) -->
+<div class="fixed inset-0 bg-gray-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden" id="modal-success">
+<div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl text-center border border-gray-100">
+<div class="w-16 h-16 bg-emerald-100 text-[#075844] rounded-full mx-auto flex items-center justify-center mb-4">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-2">تم الاعتماد والنشر بنجاح</h4>
+<p class="text-sm text-gray-600 mb-6">تم اعتماد ونشر معرفتك: «طلب تثبيت برنامج غير معتمد على جهاز الموظف» بنجاح، وتمت إضافتها لتصفح المعارف في المنصة المؤسسية.</p>
+<button class="w-full py-3 bg-[#075844] text-white rounded-xl font-bold hover:bg-[#053f31] transition-colors" id="btn-close-success">
+        العودة إلى قائمة المعارف
+      </button>
+</div>
+</div>
+<!-- END: Modals -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="interaction-handlers">
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elements
+      const btnApprove = document.getElementById('btn-approve');
+      const btnReturn = document.getElementById('btn-return');
+      const modalReturn = document.getElementById('modal-return');
+      const modalSuccess = document.getElementById('modal-success');
+      const btnCloseReturn = document.getElementById('btn-close-modal-return');
+      const btnCancelReturn = document.getElementById('btn-cancel-return');
+      const btnConfirmReturn = document.getElementById('btn-confirm-return');
+      const btnCloseSuccess = document.getElementById('btn-close-success');
+      const returnReasonText = document.getElementById('return-reason');
+
+      // Classification radio styling toggle
+      const classificationLabels = document.querySelectorAll('.classification-card');
+      classificationLabels.forEach(label => {
+        const input = label.querySelector('input[type="radio"]');
+        input.addEventListener('change', () => {
+          classificationLabels.forEach(l => {
+            l.classList.remove('border-[#075844]', 'bg-[#075844]/5', 'ring-2', 'ring-[#075844]/30');
+          });
+          if (input.checked) {
+            label.classList.add('border-[#075844]', 'bg-[#075844]/5', 'ring-2', 'ring-[#075844]/30');
+          }
+        });
+      });
+
+      // Show Approve modal
+      btnApprove.addEventListener('click', () => {
+        const selectedClassification = document.querySelector('input[name="knowledge_type"]:checked');
+        if (!selectedClassification) {
+          alert('يرجى تحديد تصنيف المعرفة أولاً (حل، إجراء، تجربة، درس مستفاد) قبل الاعتماد.');
+          return;
+        }
+        modalSuccess.classList.remove('hidden');
+      });
+
+      // Show Return modal
+      btnReturn.addEventListener('click', () => {
+        modalReturn.classList.remove('hidden');
+      });
+
+      // Close Return modal
+      const closeReturnModal = () => {
+        modalReturn.classList.add('hidden');
+        returnReasonText.value = '';
+      };
+
+      btnCloseReturn.addEventListener('click', closeReturnModal);
+      btnCancelReturn.addEventListener('click', closeReturnModal);
+
+      // Confirm Return
+      btnConfirmReturn.addEventListener('click', () => {
+        if (!returnReasonText.value.trim()) {
+          alert('يرجى كتابة سبب الإرجاع للموظف.');
+          return;
+        }
+        alert('تمت إعادة المعرفة للموظف بنجاح مصحوبة بالملاحظات.');
+        closeReturnModal();
+      });
+
+      // Close Success modal
+      btnCloseSuccess.addEventListener('click', () => {
+        modalSuccess.classList.add('hidden');
+      });
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+
+
+
+
+</body></html>

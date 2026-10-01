@@ -1,0 +1,422 @@
+<!DOCTYPE html><html dir="rtl" lang="ar" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>بصمة معرفة - اسأل خبيرًا</title>
+<!-- Google Fonts: Cairo -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#075844',
+              gold: '#DCAF38',
+              'gold-hover': '#c99e2f',
+              light: '#f4f7f6',
+              border: '#E2E8F0',
+              badge: '#e8f4f1'
+            }
+          },
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Dot Background and Utilities -->
+<style data-purpose="background-pattern">
+    .bg-dot-matrix {
+      background-color: #fafbfc;
+      background-image: 
+        radial-gradient(#075844 1.2px, transparent 1.2px), 
+        radial-gradient(#DCAF38 1.2px, transparent 1.2px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      background-repeat: repeat;
+    }
+  </style>
+<style data-purpose="custom-scroll-and-transitions">
+    body {
+      font-family: 'Cairo', sans-serif;
+      color: #1e293b;
+    }
+    .smooth-transition {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-start bg-white">
+<!-- BEGIN: MainHeader (Matched accurately to employee home SCREEN_4) -->
+<header class="w-full bg-white border-b border-gray-200/90 shadow-sm sticky top-0 z-50">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Right Side: Logo & System Title -->
+<div class="flex items-center gap-3.5 select-none" data-purpose="brand-logo-container">
+<div class="w-11 h-11 rounded-full bg-brand-dark flex items-center justify-center shadow-sm">
+<!-- Precise Fingerprint SVG Symbol in Gold -->
+<svg class="w-6 h-6 text-brand-gold fill-current" viewBox="0 0 24 24">
+<path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.86 2.49 9.87 2 12.01 2c2.12 0 3.96.47 5.95 1.57.24.13.33.43.2.67-.09.15-.24.23-.35.23zM5.42 9.07c-.1 0-.2-.03-.3-.09-.23-.15-.29-.46-.14-.69.96-1.5 2.24-2.7 3.8-3.56 3.32-1.84 7.33-1.84 10.65 0 1.56.86 2.84 2.06 3.8 3.56.15.23.09.54-.14.69-.23.15-.54.09-.69-.14-.88-1.37-2.04-2.46-3.46-3.24-3.03-1.68-6.69-1.68-9.72 0-1.42.78-2.58 1.87-3.46 3.24-.08.15-.22.23-.34.23zM12 21c-1.28 0-2.56-.25-3.8-.76-1.57-.64-2.61-1.74-3.1-3.26-.35-1.1-.41-2.47-.19-4.07.03-.27.28-.46.55-.42.27.04.46.28.42.55-.2 1.48-.15 2.72.16 3.69.41 1.28 1.28 2.2 2.59 2.73 1.3.54 2.65.74 4.07.61 2.22-.2 4.09-1.45 5-3.33.84-1.74.87-3.79.08-5.77-.54-1.35-1.47-2.47-2.69-3.24-1.28-.81-2.77-1.24-4.32-1.24-1.5 0-2.95.41-4.18 1.18-1.56.97-2.66 2.45-3.11 4.15-.07.26-.33.42-.6.35-.26-.07-.42-.33-.35-.6.52-1.95 1.77-3.64 3.54-4.75 1.42-.89 3.07-1.36 4.7-1.36 1.77 0 3.47.49 4.93 1.42 1.4 0.88 2.46 2.16 3.08 3.71.9 2.27.87 4.62-.09 6.62-1.04 2.16-3.18 3.59-5.72 3.82-.29.03-.59.04-.88.04zM12.01 17.5c-1.66 0-3-1.34-3-3 0-.28.22-.5.5-.5s.5.22.5.5c0 1.1.9 2 2 2s2-.9 2-2c0-.52-.2-1.01-.56-1.38l-1.4-1.41c-.93-.93-1.44-2.17-1.44-3.48 0-1.89 1.34-3.48 3.19-3.73 1.93-.26 3.71.97 4.15 2.87.06.27-.1.53-.37.59-.27.06-.53-.1-.59-.37-.36-1.55-1.8-2.54-3.37-2.33-1.47.2-2.51 1.45-2.51 2.97 0 1.04.4 2.02 1.14 2.76l1.4 1.41c.57.57.88 1.33.88 2.13 0 1.66-1.34 3-2.99 3z"></path>
+</svg>
+</div>
+<h1 class="text-2xl lg:text-[26px] font-bold text-brand-dark tracking-tight">بصمة معرفة</h1>
+</div>
+<!-- Left Side (Exact order: User icon -> "مرحبًا، سارة" without capsule -> Notification bell -> Divider -> Logout Button) -->
+<div class="flex items-center gap-4 lg:gap-5" data-purpose="user-navigation-actions">
+<!-- User Avatar Circle -->
+<div class="w-9 h-9 rounded-full bg-brand-light flex items-center justify-center text-brand-dark shrink-0">
+<svg class="w-5 h-5 text-brand-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- User Greeting Text outside any capsule/pill -->
+<span class="text-sm font-semibold text-gray-800">مرحبًا، سارة</span>
+<!-- Notification Bell with small gold dot -->
+<button aria-label="الإشعارات" class="relative p-2 text-brand-dark hover:bg-gray-100 rounded-full transition-colors mr-1" type="button">
+<svg class="w-6 h-6 stroke-current fill-none" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-brand-gold rounded-full ring-2 ring-white"></span>
+</button>
+<!-- Vertical Divider -->
+<div class="h-6 w-[1.5px] bg-gray-200 hidden sm:block"></div>
+<!-- Logout Button -->
+<button class="flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-hover text-brand-dark font-bold px-4 py-2 rounded-xl text-sm transition-all shadow-sm" type="button">
+<svg class="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">تسجيل الخروج</span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContentWrapper -->
+<main class="flex-grow py-8 px-4 sm:px-6 lg:px-12 max-w-[1440px] w-full mx-auto">
+<!-- White Card Canvas Shielding the Dot Matrix Background -->
+<div class="bg-white rounded-3xl border border-gray-200/90 shadow-xl p-6 sm:p-10 lg:p-12 mb-8"><!-- Top Navigation: Breadcrumb and Back Link -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-5">
+  <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-gray-500">
+    <a class="text-[#075844] hover:underline font-medium flex items-center gap-1" href="#">
+      <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      الرئيسية
+    </a>
+    <span class="text-gray-400">←</span>
+    <a class="text-[#075844] hover:underline font-medium" href="#">اسأل خبيرًا</a>
+    <span class="text-gray-400">←</span>
+    <span class="text-gray-800 font-semibold">تفاصيل المعرفة</span>
+  </nav>
+  <div>
+    <a href="#" class="inline-flex items-center gap-1.5 text-sm font-bold text-[#075844] hover:underline">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+      العودة إلى نتائج البحث
+    </a>
+  </div>
+</div>
+
+<!-- Header Section: Page Title & Knowledge Title -->
+<div class="mb-8">
+  <div class="flex items-center justify-between gap-3 mb-2">
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-[#075844]">تفاصيل المعرفة</h1>
+    <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-brand-light text-[#075844] border border-brand-dark/10 shrink-0">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      قاعدة المعرفة محدثة وموثوقة
+    </div>
+  </div>
+  <h2 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug mt-3 mb-4">تعذّر دخول الموظف لحسابه بعد إعادة تعيين كلمة المرور</h2>
+  
+  <!-- Metadata Details -->
+  <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600 bg-gray-50/70 p-3.5 rounded-xl border border-gray-200/80">
+    <div class="flex items-center gap-1.5 font-medium">
+      <span class="text-gray-500 font-normal">الإدارة:</span>
+      <svg class="w-4 h-4 text-[#075844] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+      </svg>
+      <span class="text-gray-800 font-bold">إدارة تقنية المعلومات</span>
+    </div>
+    <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+    <div class="flex items-center gap-1.5 font-medium">
+      <span class="text-gray-500 font-normal">التصنيف:</span>
+      <span class="inline-block bg-[#075844]/10 text-[#075844] font-bold px-2.5 py-0.5 rounded-full text-xs">إجراء</span>
+    </div>
+    <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+    <div class="flex items-center gap-1.5">
+      <span class="text-gray-500 font-normal">مصدر المعرفة:</span>
+      <a href="#" target="_blank" class="inline-flex items-center gap-1 font-semibold text-[#075844] underline hover:text-[#054334]">
+        <span class="">لائحة الأمن السيبراني وضوابط الهوية الرقمية – المادة 14</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Problem Section -->
+<div class="mb-8">
+  <div class="bg-amber-50/60 border border-amber-200/80 rounded-xl p-5">
+    <h3 class="text-sm font-bold text-amber-900 flex items-center gap-2 mb-2">
+      <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+      </svg>
+      المشكلة
+    </h3>
+    <p class="text-sm sm:text-base text-gray-800 leading-relaxed font-medium">
+      تعذّر على الموظف تسجيل الدخول إلى حسابه بعد تغيير كلمة المرور، رغم إدخال كلمة المرور الجديدة.
+    </p>
+  </div>
+</div>
+
+<!-- Steps of Solution -->
+<div class="mb-8">
+  <h3 class="text-base font-bold text-[#075844] flex items-center gap-2 mb-4">
+    <svg class="w-5 h-5 text-[#075844] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+    </svg>
+    خطوات الحل
+  </h3>
+  <div class="flex flex-col gap-3">
+    <div class="flex items-center gap-3.5 p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+      <span class="w-8 h-8 rounded-lg bg-[#075844] text-white font-bold flex items-center justify-center text-sm shrink-0">١</span>
+      <span class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">تأكد من كتابة الرقم الوظيفي بصورة صحيحة.</span>
+    </div>
+    <div class="flex items-center gap-3.5 p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+      <span class="w-8 h-8 rounded-lg bg-[#075844] text-white font-bold flex items-center justify-center text-sm shrink-0">٢</span>
+      <span class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">اختر «نسيت كلمة المرور؟» من صفحة تسجيل الدخول.</span>
+    </div>
+    <div class="flex items-center gap-3.5 p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+      <span class="w-8 h-8 rounded-lg bg-[#075844] text-white font-bold flex items-center justify-center text-sm shrink-0">٣</span>
+      <span class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">اتبع خطوات إعادة التعيين، ثم أدخل كلمة مرور جديدة مطابقة للمتطلبات.</span>
+    </div>
+    <div class="flex items-center gap-3.5 p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+      <span class="w-8 h-8 rounded-lg bg-[#075844] text-white font-bold flex items-center justify-center text-sm shrink-0">٤</span>
+      <span class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">أغلق المتصفح وافتحه مجددًا، ثم حاول تسجيل الدخول.</span>
+    </div>
+    <div class="flex items-center gap-3.5 p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+      <span class="w-8 h-8 rounded-lg bg-[#075844] text-white font-bold flex items-center justify-center text-sm shrink-0">٥</span>
+      <span class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">إذا استمرت المشكلة، تواصل مع الدعم الفني على التحويلة ٢٣٤٥.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Helpful Feedback Section -->
+<div class="border-t border-gray-100 pt-6">
+  <div class="bg-gray-50/70 border border-gray-200/90 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <svg class="w-5 h-5 text-[#075844] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span class="text-sm sm:text-base font-bold text-gray-800">هل أفادتك هذه المعرفة؟</span>
+    </div>
+    <div class="flex items-center gap-3 w-full sm:w-auto">
+      <button type="button" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-[#075844] hover:bg-[#054334] text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span class="">نعم، استفدت</span>
+      </button>
+      <button type="button" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-white border border-[#075844] text-[#075844] hover:bg-[#075844]/5 font-bold text-sm px-5 py-2.5 rounded-xl transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        <span class="">لا، لم أستفد</span>
+      </button>
+    </div>
+  </div>
+</div></div>
+</main>
+<!-- END: MainContentWrapper -->
+<!-- BEGIN: Interactive Multi-Stage Logic Script -->
+<script data-purpose="multi-stage-interaction">
+    // Knowledge Base Data
+    const knowledgeDatabase = [
+      {
+        id: 1,
+        title: "تعذّر دخول الموظف لحسابه بعد إعادة تعيين كلمة المرور",
+        dept: "إدارة تقنية المعلومات",
+        badge: "إجراء",
+        source: "لائحة الأمن السيبراني وضوابط الهوية الرقمية - المادة 14",
+        keywords: ["كلمة المرور", "مرور", "دخول", "حساب", "تعذر", "إعادة تعيين", "password", "login"],
+        steps: [
+          "تأكد من كتابة الرقم الوظيفي بصورة صحيحة.",
+          "اختر «نسيت كلمة المرور» من صفحة تسجيل الدخول.",
+          "اتبع خطوات إعادة التعيين وأدخل كلمة المرور الجديدة.",
+          "إذا استمرت المشكلة، تواصل مع الدعم الفني."
+        ]
+      },
+      {
+        id: 2,
+        title: "بطء الاتصال بالشبكة الخاصة (VPN) عند العمل عن بُعد",
+        dept: "إدارة تقنية المعلومات",
+        badge: "حل",
+        source: "دليل الدخول الآمن للعمل عن بُعد - تحديث الربع الثاني",
+        keywords: ["vpn", "في بي ان", "شبكة", "اتصال", "عن بعد", "بطء", "انترنت"],
+        steps: [
+          "افصل الاتصال الحالي ببرنامج Cisco AnyConnect أو عميل الـ VPN المعتمد.",
+          "تأكد من استقرار سرعة الإنترنت المنزلي بإعادة تشغيل المودم.",
+          "اختر خادم المنطقة الأقرب (VPN-Gateway-KSA).",
+          "سجل الدخول بالتحقق الثنائي عبر تطبيق النفاذ المعتمد."
+        ]
+      },
+      {
+        id: 3,
+        title: "الطابعة الشبكية لا تطبع لعدة موظفين في الوقت نفسه",
+        dept: "إدارة تقنية المعلومات",
+        badge: "تجربة",
+        source: "سجل المشاكل التشغيلية الشائعة - قسم البنية التحتية",
+        keywords: ["طابعة", "طباعة", "ورق", "شبكية", "طابعة الشبكة", "print", "printer"],
+        steps: [
+          "تحقق من خلو قائمة انتظار الطباعة (Spooler) من أي أمر معلّق.",
+          "أعد تشغيل خدمة Print Spooler من إدارة الخدمات بجهازك.",
+          "تأكد من اختيار اسم الطابعة الشبكية المحددة للدور الصحيح.",
+          "في حال استمرار توقف الطابعة، يرجى تقديم تذكرة دعم لإفراغ ذاكرة الطابعة المركزية."
+        ]
+      }
+    ];
+
+    // Stage Elements
+    const searchResultsStage = document.getElementById('searchResultsStage');
+    const solutionDetailStage = document.getElementById('solutionDetailStage');
+    const noResultsStage = document.getElementById('noResultsStage');
+
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('knowledgeSearchInput');
+    const btnBackToResults = document.getElementById('btnBackToResults');
+
+    const btnHelpfulYes = document.getElementById('btnHelpfulYes');
+    const btnHelpfulNo = document.getElementById('btnHelpfulNo');
+    const feedbackButtons = document.getElementById('feedbackButtonContainer');
+    const thankYouMsg = document.getElementById('thankYouMsg');
+    const expertContactCardDetail = document.getElementById('expertContactCardDetail');
+
+    // Transition Helper
+    function setStage(stage) {
+      // stages: 'initial', 'results', 'detail', 'no-results'
+      searchResultsStage.classList.add('hidden');
+      solutionDetailStage.classList.add('hidden');
+      noResultsStage.classList.add('hidden');
+
+      if (stage === 'results') {
+        searchResultsStage.classList.remove('hidden');
+      } else if (stage === 'detail') {
+        solutionDetailStage.classList.remove('hidden');
+      } else if (stage === 'no-results') {
+        noResultsStage.classList.remove('hidden');
+      }
+    }
+
+    // Render & Open Detail View (Stage 3)
+    function showKnowledgeDetail(id) {
+      const item = knowledgeDatabase.find(k => k.id === id);
+      if (!item) return;
+
+      document.getElementById('detailTitle').textContent = item.title;
+      document.getElementById('detailDept').innerHTML = `
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        ${item.dept}
+      `;
+      document.getElementById('detailBadge').textContent = item.badge;
+      document.getElementById('detailSource').textContent = item.source;
+
+      // Steps
+      const arabicNumerals = ['١', '٢', '٣', '٤', '٥'];
+      const stepsContainer = document.getElementById('stepsContainer');
+      stepsContainer.innerHTML = item.steps.map((step, idx) => `
+        <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-gray-50 border border-gray-200/80 hover:bg-emerald-50/40 transition-colors">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">
+            ${arabicNumerals[idx] || (idx + 1)}
+          </span>
+          <span class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">${step}</span>
+        </div>
+      `).join('');
+
+      // Reset Feedback
+      feedbackButtons.classList.remove('hidden');
+      thankYouMsg.classList.add('hidden');
+      expertContactCardDetail.classList.add('hidden');
+
+      setStage('detail');
+      solutionDetailStage.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Search logic to switch to Stage 2 or Stage 4
+    function performSearch(query) {
+      const q = query.trim().toLowerCase();
+
+      // If user typed impossible gibberish (e.g. unknown keywords)
+      const matches = knowledgeDatabase.filter(item => {
+        if (!q) return true; // if search button clicked empty, show standard 3
+        const inTitle = item.title.toLowerCase().includes(q);
+        const inSource = item.source.toLowerCase().includes(q);
+        const inKeywords = item.keywords.some(k => k.toLowerCase().includes(q));
+        return inTitle || inSource || inKeywords;
+      });
+
+      // Filter visible items in stage 2
+      document.querySelectorAll('#knowledgeListContainer .knowledge-item').forEach(card => {
+        const itemId = parseInt(card.getAttribute('data-item-id'));
+        if (matches.some(m => m.id === itemId)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (matches.length === 0) {
+        setStage('no-results');
+      } else {
+        const countBadge = document.getElementById('resultsCountBadge');
+        if (countBadge) {
+          countBadge.textContent = matches.length === 3 ? '٣ معارف معتمدة' : `${matches.length} نتيجة بحث`;
+        }
+        setStage('results');
+      }
+    }
+
+    // Attach Event Handlers
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initial Stage: Default state is Stage 1 (Everything hidden except search)
+      setStage('initial');
+
+      // Search submit
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        performSearch(searchInput.value);
+      });
+
+      // Return to search results (Stage 3 -> Stage 2)
+      btnBackToResults.addEventListener('click', () => {
+        setStage('results');
+        searchResultsStage.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Feedback: Yes
+      btnHelpfulYes.addEventListener('click', () => {
+        feedbackButtons.classList.add('hidden');
+        thankYouMsg.classList.remove('hidden');
+        expertContactCardDetail.classList.add('hidden');
+      });
+
+      // Feedback: No -> shows expert card
+      btnHelpfulNo.addEventListener('click', () => {
+        feedbackButtons.classList.add('hidden');
+        expertContactCardDetail.classList.remove('hidden');
+      });
+    });
+  </script>
+<!-- END: Interactive Logic Script -->
+
+
+
+
+</body></html>

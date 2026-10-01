@@ -1,0 +1,292 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>بصمة معرفة - مراجعة المعارف</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Tajawal', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              green: '#075844',
+              'green-dark': '#054233',
+              'green-light': '#0a7359',
+              gold: '#DCAF38',
+              'gold-hover': '#c99d2d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #fcfdfd;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      width: 1280px;
+      height: 832px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .badge-green {
+      background-color: #DCFCE7;
+      color: #166534;
+      border: 1px solid #BBF7D0;
+    }
+    .badge-blue {
+      background-color: #E0F2FE;
+      color: #075985;
+      border: 1px solid #BAE6FD;
+    }
+  </style>
+</head>
+<body class="w-[1280px] h-[832px] max-w-[1280px] max-h-[832px] bg-slate-50/50 text-slate-800 antialiased flex flex-col mx-auto select-none">
+<!-- الهيدر الممتد عبر العرض بالكامل -->
+<header class="w-full bg-white border-b border-slate-200/90 shrink-0">
+<div class="w-full px-8 py-3 flex items-center justify-between">
+<!-- الجهة اليمنى: الشعار وبصمة الإصبع المعتمدة -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#075844] flex items-center justify-center shadow-xs">
+<svg class="w-6 h-6 text-[#DCAF38]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M12 2a10 10 0 0 0-6.88 17.24"></path>
+<path d="M7.5 12a4.5 4.5 0 0 1 9 0c0 2.5-1 4.5-2.5 6"></path>
+<path d="M10.5 12a1.5 1.5 0 0 1 3 0c0 1.5-.5 3-1.5 4"></path>
+<path d="M12 7.5a4.5 4.5 0 0 0-4.5 4.5c0 1.5.5 3 1.5 4.5"></path>
+<path d="M12 2a10 10 0 0 1 9.5 8c0 3-1.5 5.5-3.5 7.5"></path>
+</svg>
+</div>
+<span class="text-2xl font-bold text-[#075844] tracking-tight">بصمة معرفة</span>
+</div>
+<!-- الجهة اليسرى: بيانات المستخدم (ريم - مراجع معرفي) والإشعارات وزر تسجيل الخروج -->
+<div class="flex items-center gap-5">
+<!-- معلومات المستخدم -->
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#075844]/10 flex items-center justify-center text-[#075844]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-slate-800 font-bold text-sm">مرحبًا، ريم</span>
+<span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-[#075844]/10 text-[#075844] border border-[#075844]/20">مراجع معرفي</span>
+</div>
+</div>
+<!-- جرس الإشعارات مع النقطة الذهبية -->
+<button class="relative p-2 text-slate-600 hover:text-[#075844] transition-colors focus:outline-none" title="التنبيهات">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-[#DCAF38] text-slate-900 text-[10px] font-extrabold rounded-full flex items-center justify-center ring-2 ring-white shadow-xs">١</span>
+</button>
+<!-- زر تسجيل الخروج -->
+<button class="flex items-center gap-2 bg-[#DCAF38] hover:bg-[#c99d2d] text-slate-900 font-bold px-4 py-2 rounded-lg text-sm shadow-xs transition-all">
+<svg class="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>تسجيل الخروج</span>
+</button>
+</div>
+</div>
+</header>
+<!-- مساحة المحتوى الرئيسية المصممة بدقة لارتفاع 832px بدون تمرير زائد -->
+<main class="flex-1 w-full px-8 py-5 flex flex-col justify-between overflow-hidden">
+<div class="space-y-4">
+<!-- العنوان الرئيسي والوصف -->
+<div>
+<h1 class="text-2xl font-extrabold text-[#075844] mb-1 tracking-tight">مراجعة المعارف</h1>
+<p class="text-slate-500 text-sm">راجع المعارف المرسلة من موظفي إدارتك، وصنّفها قبل اعتمادها ونشرها.</p>
+</div>
+<!-- البطاقات الإحصائية الأربع في صف واحد -->
+<div class="grid grid-cols-4 gap-4">
+<!-- بطاقة 1: تحتاج إلى المراجعة -->
+<div class="bg-white rounded-xl p-4 border border-amber-200 shadow-xs flex items-center justify-between bg-gradient-to-br from-white to-amber-50/30">
+<div>
+<p class="text-xs font-semibold text-slate-500 mb-1">تحتاج إلى المراجعة</p>
+<p class="text-2xl font-extrabold text-amber-600">٠</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-amber-100/80 flex items-center justify-center text-amber-700">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- بطاقة 2: تم نشرها -->
+<div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-xs flex items-center justify-between">
+<div>
+<p class="text-xs font-semibold text-slate-500 mb-1">تم نشرها</p>
+<p class="text-2xl font-extrabold text-[#075844]">٥</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center text-[#075844]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- بطاقة 3: أُعيدت للتعديل -->
+<div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-xs flex items-center justify-between">
+<div>
+<p class="text-xs font-semibold text-slate-500 mb-1">أُعيدت للتعديل</p>
+<p class="text-2xl font-extrabold text-slate-700">٠</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- بطاقة 4: إجمالي المعارف -->
+<div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-xs flex items-center justify-between">
+<div>
+<p class="text-xs font-semibold text-slate-500 mb-1">إجمالي المعارف</p>
+<p class="text-2xl font-extrabold text-slate-800">٥</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-[#075844]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- شريط التبويبات -->
+<div class="bg-white rounded-xl border border-slate-200/90 p-2.5 shadow-xs">
+<div class="flex items-center gap-2">
+<!-- تبويب الكل -->
+<button class="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap flex items-center gap-2" id="tab-all" onclick="selectTab('all')">
+<span>الكل</span>
+<span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-700" id="badge-all">٥</span>
+</button>
+<!-- تبويب تحتاج إلى المراجعة (محدد افتراضياً) -->
+<button class="px-4 py-2 rounded-lg text-sm font-bold bg-[#075844] text-white shadow-xs transition-all whitespace-nowrap flex items-center gap-2" id="tab-pending" onclick="selectTab('pending')">
+<span>تحتاج إلى المراجعة</span>
+<span class="px-2 py-0.5 text-xs rounded-full bg-amber-400 text-slate-900 font-extrabold" id="badge-pending">٠</span>
+</button>
+<!-- تبويب منشورة -->
+<button class="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap flex items-center gap-2" id="tab-published" onclick="selectTab('published')">
+<span>منشورة</span>
+<span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-700" id="badge-published">٥</span>
+</button>
+<!-- تبويب أُعيدت للتعديل -->
+<button class="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap flex items-center gap-2" id="tab-returned" onclick="selectTab('returned')">
+<span>أُعيدت للتعديل</span>
+<span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-700" id="badge-returned">٠</span>
+</button>
+</div>
+</div>
+<!-- قسم: قائمة المعارف -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+<span class="w-2 h-5 bg-[#075844] rounded-full inline-block"></span>
+          قائمة المعارف
+        </h2>
+<span class="text-xs text-slate-500 font-medium" id="itemsCountText">عرض المعارف التي تحتاج مراجعة (٠)</span>
+</div>
+<!-- محتوى: الحالة الفارغة (افتراضي) -->
+<div class="bg-white rounded-xl py-14 px-6 border border-slate-200/80 shadow-xs flex flex-col items-center justify-center text-center" id="empty-state-view">
+<div class="w-14 h-14 rounded-full bg-emerald-50 text-[#075844] flex items-center justify-center mb-3 ring-6 ring-emerald-50/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-base font-bold text-slate-800 mb-1">لا توجد معارف تحتاج إلى المراجعة حاليًا</h3>
+<p class="text-xs text-slate-500">تمت مراجعة واعتماد جميع المعارف الواردة بنجاح</p>
+</div>
+<!-- محتوى: بطاقة المعرفة المنشورة (تظهر عند النقر على منشورة أو الكل) -->
+<div class="hidden bg-white rounded-xl p-5 border border-slate-200/90 shadow-xs hover:border-slate-300 transition-colors" id="published-card-view">
+<div class="flex items-center justify-between gap-5">
+<div class="space-y-2.5 flex-1">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 text-xs font-bold rounded-full badge-green">تم النشر</span>
+<span class="px-2.5 py-0.5 text-xs font-semibold rounded-md badge-blue">إجراء تقني</span>
+</div>
+<h3 class="text-base font-bold text-slate-800">
+              طلب تثبيت برنامج غير معتمد على جهاز الموظف
+            </h3>
+<div class="flex flex-wrap items-center gap-y-1.5 gap-x-5 text-xs text-slate-500 font-medium">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span>اسم الموظف: <strong class="text-slate-700">سارة العمري</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-slate-400 font-bold text-xs">#</span>
+<span>الرقم الوظيفي: <strong class="text-slate-700">١٠٢٣٤</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span>الإدارة: <strong class="text-slate-700">إدارة تقنية المعلومات</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span>تاريخ النشر: <strong class="text-slate-700">١١ ربيع الثاني ١٤٤٨هـ</strong></span>
+</div>
+</div>
+</div>
+<div>
+<button class="border border-[#075844] text-[#075844] hover:bg-[#075844] hover:text-white font-bold px-4 py-2 rounded-lg text-sm transition-all flex items-center justify-center gap-1.5 whitespace-nowrap shadow-2xs">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>عرض المعرفة</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="py-1"></div>
+</main>
+<!-- Vanilla JS التفاعلي للتبويبات -->
+<script>
+  function selectTab(status) {
+    const tabs = ['all', 'pending', 'published', 'returned'];
+    const emptyState = document.getElementById('empty-state-view');
+    const publishedCard = document.getElementById('published-card-view');
+    const countText = document.getElementById('itemsCountText');
+
+    // إعادة ضبط الأزرار
+    tabs.forEach(tabKey => {
+      const btn = document.getElementById('tab-' + tabKey);
+      if (tabKey === status) {
+        btn.className = "px-4 py-2 rounded-lg text-sm font-bold bg-[#075844] text-white shadow-xs transition-all whitespace-nowrap flex items-center gap-2";
+      } else {
+        btn.className = "px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap flex items-center gap-2";
+      }
+    });
+
+    if (status === 'published' || status === 'all') {
+      emptyState.classList.add('hidden');
+      publishedCard.classList.remove('hidden');
+      if (status === 'published') {
+        countText.textContent = "عرض المعارف المنشورة (٥)";
+      } else {
+        countText.textContent = "عرض جميع المعارف (٥)";
+      }
+    } else if (status === 'pending') {
+      emptyState.classList.remove('hidden');
+      publishedCard.classList.add('hidden');
+      countText.textContent = "عرض المعارف التي تحتاج مراجعة (٠)";
+    } else if (status === 'returned') {
+      emptyState.classList.remove('hidden');
+      publishedCard.classList.add('hidden');
+      countText.textContent = "لا توجد معارف معادة للتعديل حاليًا (٠)";
+    }
+  }
+</script>
+</body></html>

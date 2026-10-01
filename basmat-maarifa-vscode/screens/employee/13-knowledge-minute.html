@@ -1,0 +1,360 @@
+<!DOCTYPE html><html dir="rtl" lang="ar" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>دقيقة معرفة | بصمة معرفة</title>
+<!-- IBM Plex Sans Arabic Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed": "#251a00",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#5a4300",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#002118",
+            "primary-container": "#075844",
+            "primary-fixed": "#abf1d6",
+            "on-secondary-container": "#735700",
+            "surface-tint": "#236a55",
+            "inverse-primary": "#8fd4ba",
+            "surface": "#ffffff",
+            "primary-fixed-dim": "#8fd4ba",
+            "on-tertiary-container": "#7dceb3",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#002117",
+            "background": "#ffffff",
+            "outline": "#6f7974",
+            "on-primary-fixed-variant": "#00513e",
+            "tertiary-fixed-dim": "#85d6bb",
+            "on-primary-container": "#87ccb3",
+            "tertiary-container": "#005845",
+            "surface-container-high": "#f4f3ef",
+            "secondary-fixed": "#ffdf98",
+            "surface-dim": "#e8e6df",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#0e372b",
+            "surface-container-highest": "#eae8e2",
+            "on-background": "#002117",
+            "on-tertiary-fixed-variant": "#00513f",
+            "surface-container": "#f9f8f5",
+            "tertiary-fixed": "#a1f3d6",
+            "outline-variant": "#E8E6DF",
+            "surface-variant": "#f4f3ef",
+            "surface-bright": "#ffffff",
+            "secondary-container": "#DCAF38",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#cffae8",
+            "on-surface": "#002117",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#efc048",
+            "secondary": "#DCAF38",
+            "surface-container-low": "#faf9f6",
+            "on-surface-variant": "#3f4944",
+            "tertiary": "#003f30",
+            "primary": "#075844"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter-desktop": "2rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "label-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-xl": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"]
+          },
+          fontSize: {
+            "label-sm": ["0.6875rem", { lineHeight: "0.875rem", fontWeight: "500" }],
+            "headline-xl": ["1.75rem", { lineHeight: "2.5rem", fontWeight: "600" }],
+            "display-lg-mobile": ["1.75rem", { lineHeight: "2.375rem", fontWeight: "700" }],
+            "body-md": ["0.9375rem", { lineHeight: "1.625rem", fontWeight: "400" }],
+            "label-md": ["0.75rem", { lineHeight: "1rem", fontWeight: "500" }],
+            "display-lg": ["2.25rem", { lineHeight: "3rem", fontWeight: "700" }],
+            "headline-lg": ["1.375rem", { lineHeight: "2rem", fontWeight: "600" }],
+            "body-sm": ["0.8125rem", { lineHeight: "1.375rem", fontWeight: "400" }],
+            "headline-sm": ["1.125rem", { lineHeight: "1.75rem", fontWeight: "600" }],
+            "label-lg": ["0.875rem", { lineHeight: "1.25rem", fontWeight: "600" }],
+            "body-lg": ["1.0625rem", { lineHeight: "1.875rem", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #FFFFFF;
+      color: #002117;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .card-hover {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover:hover {
+      border-color: #075844;
+      box-shadow: 0 4px 16px -2px rgba(15, 56, 44, 0.08);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest min-h-screen text-on-surface">
+<!-- المؤسسي الهيدر: Top Navigation Bar -->
+<header class="bg-white border-b border-[#e8e6df] shadow-sm sticky top-0 z-50" data-purpose="top-navigation">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo & Identity (Right side in RTL) -->
+<div class="flex items-center gap-3.5">
+<!-- Exact Fingerprint Badge matching SCREEN_21 -->
+<div class="w-12 h-12 rounded-full bg-[#075844] border-2 border-[#DCAF38] flex items-center justify-center shadow-inner flex-shrink-0">
+<svg class="w-7 h-7 text-[#DCAF38]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path><path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path><path d="M2 12a10 10 0 0 1 18-6"></path><path d="M2 16h.01"></path><path d="M21.8 16c.2-2 .131-5.354 0-6"></path><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"></path><path d="M8.65 22c.21-.66.45-1.32.57-2"></path><path d="M9 6.8a6 6 0 0 1 9 5.2v2"></path></svg>
+</div>
+<span class="text-2xl font-extrabold text-[#075844] tracking-tight">بصمة معرفة</span>
+</div>
+<!-- User Profile & Sign Out (Left side in RTL) -->
+<div class="flex items-center gap-5">
+<!-- User Welcome Details -->
+<div class="flex items-center gap-2.5 text-[#075844] font-semibold text-base">
+<div class="w-8 h-8 rounded-full bg-[#075844]/10 flex items-center justify-center text-[#075844]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="">مرحبًا، سارة</span>
+</div>
+<!-- Notification Bell -->
+<button type="button" class="relative p-2 text-[#075844] hover:bg-[#075844]/10 rounded-full transition-colors duration-150 flex items-center justify-center" aria-label="التنبيهات"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg><span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DCAF38] opacity-75"></span><span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#DCAF38] text-[9px] font-bold text-[#075844] items-center justify-center border border-white">1</span></span></button><div aria-hidden="true" class="h-6 w-px bg-slate-200"></div>
+<!-- Logout Button -->
+<button class="bg-[#DCAF38] hover:bg-[#c99e2f] text-[#075844] font-semibold px-4 py-1.5 rounded-lg transition-colors duration-150 flex items-center gap-1.5 shadow-sm text-sm" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">تسجيل الخروج</span>
+</button>
+</div>
+</div>
+</header>
+<!-- حاوية الصفحة الرئيسية لسطح المكتب -->
+<main class="max-w-[1440px] mx-auto px-margin-desktop py-space-xl">
+<!-- 1. مسار التنقل (Breadcrumb) -->
+<nav aria-label="مسار التنقل" class="mb-space-lg">
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="home">home</span>
+<span class="">الرئيسية</span>
+</a>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="chevron_left">chevron_left</span>
+<span class="text-primary font-semibold">دقيقة معرفة</span>
+</div>
+</nav>
+<!-- 2. العنوان الرئيسي والوصف القصير -->
+<section class="mb-space-xl border-b border-outline-variant pb-6">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary font-bold tracking-tight mb-2">
+            دقيقة معرفة
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            محتوى معرفي مختصر يمكنك الاطلاع عليه خلال دقائق لتعزيز الكفاءة وحماية الأصول المعرفية للمؤسسة.
+          </p>
+</div>
+<!-- شارة إحصائية خفيفة -->
+
+</div>
+</section><div class="mb-space-lg"><div class="flex items-center gap-3 border-b border-outline-variant pb-3"><button id="tab-listen-watch" type="button" onclick="switchTab('watch')" class="px-6 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm transition-all shadow-sm flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">play_circle</span><span class="">استمع وشاهد</span></button><button id="tab-record-minute" type="button" onclick="switchTab('record')" class="px-6 py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary font-semibold text-sm transition-all border border-transparent hover:border-outline-variant flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mic</span><span class="">سجّل دقيقتك</span></button></div><p class="mt-3 text-body-sm text-on-surface-variant">محتوى معرفي مختصر للاستماع والمشاهدة، ويمكنك مشاركة دقيقتك المعرفية وإرسالها للمراجعة.</p></div>
+<!-- 3. شبكة بطاقات الفيديو: 3 أعمدة وصفين (grid grid-cols-3 gap-6) -->
+<section aria-label="قائمة مقاطع دقيقة معرفة" class="grid grid-cols-3 gap-6" id="view-listen-watch">
+<!-- البطاقة 1 -->
+<article class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col justify-between overflow-hidden shadow-none">
+<div class="p-space-lg flex flex-col flex-1">
+<!-- الحاوية العلوية: أيقونة الفيديو والمدة -->
+<div class="flex items-center justify-between mb-space-md">
+<!-- أيقونة تشغيل فيديو: دائرة خضراء #075844 بداخلها أيقونة تشغيل play ذهبية #DCAF38 -->
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px] translate-x-[-1px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+
+</div>
+<!-- عنوان المعرفة -->
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold line-clamp-2 mb-space-sm leading-snug">
+            طريقة التعامل مع رسائل البريد الإلكتروني المشبوهة
+          </h2>
+<!-- صاحب المعرفة -->
+<div class="mt-auto pt-space-md flex items-center gap-2 border-t border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant">صاحب المعرفة:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">نورة الحربي</span>
+</div>
+</div>
+<!-- زر الإجراء السفلي -->
+<div class="px-space-lg pb-space-lg pt-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-secondary text-primary font-label-lg text-label-lg font-bold rounded-lg hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+<span class="">مشاهدة الفيديو</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</article>
+<!-- البطاقة 2 -->
+<article class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col justify-between overflow-hidden shadow-none">
+<div class="p-space-lg flex flex-col flex-1">
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px] translate-x-[-1px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold line-clamp-2 mb-space-sm leading-snug">
+            حل مشكلة بطء اتصال VPN عند العمل عن بُعد
+          </h2>
+<div class="mt-auto pt-space-md flex items-center gap-2 border-t border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant">صاحب المعرفة:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">أحمد المطيري</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-secondary text-primary font-label-lg text-label-lg font-bold rounded-lg hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+<span class="">مشاهدة الفيديو</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</article>
+<!-- البطاقة 3 -->
+<article class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col justify-between overflow-hidden shadow-none">
+<div class="p-space-lg flex flex-col flex-1">
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px] translate-x-[-1px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold line-clamp-2 mb-space-sm leading-snug">
+            خطوات حماية الحساب من محاولات الدخول غير المصرح بها
+          </h2>
+<div class="mt-auto pt-space-md flex items-center gap-2 border-t border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant">صاحب المعرفة:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">إيمان الحازمي</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-secondary text-primary font-label-lg text-label-lg font-bold rounded-lg hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+<span class="">مشاهدة الفيديو</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</article>
+<!-- البطاقة 4 -->
+<article class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col justify-between overflow-hidden shadow-none">
+<div class="p-space-lg flex flex-col flex-1">
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px] translate-x-[-1px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold line-clamp-2 mb-space-sm leading-snug">
+            خطوات بسيطة للحفاظ على الملفات المشتركة
+          </h2>
+<div class="mt-auto pt-space-md flex items-center gap-2 border-t border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant">صاحب المعرفة:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">محمد الجهني</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-secondary text-primary font-label-lg text-label-lg font-bold rounded-lg hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+<span class="">مشاهدة الفيديو</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</article>
+<!-- البطاقة 5 -->
+<article class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col justify-between overflow-hidden shadow-none">
+<div class="p-space-lg flex flex-col flex-1">
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px] translate-x-[-1px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold line-clamp-2 mb-space-sm leading-snug">
+            إنشاء كلمة مرور آمنة وسهلة التذكر
+          </h2>
+<div class="mt-auto pt-space-md flex items-center gap-2 border-t border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant">صاحب المعرفة:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">سارة العمري</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-secondary text-primary font-label-lg text-label-lg font-bold rounded-lg hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+<span class="">مشاهدة الفيديو</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</article>
+<!-- البطاقة 6 -->
+<article class="card-hover bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col justify-between overflow-hidden shadow-none">
+<div class="p-space-lg flex flex-col flex-1">
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px] translate-x-[-1px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold line-clamp-2 mb-space-sm leading-snug">
+            إعادة ضبط الطابعة الشبكية بطريقة صحيحة
+          </h2>
+<div class="mt-auto pt-space-md flex items-center gap-2 border-t border-outline-variant/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant">صاحب المعرفة:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">خالد العتيبي</span>
+</div>
+</div>
+<div class="px-space-lg pb-space-lg pt-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-secondary text-primary font-label-lg text-label-lg font-bold rounded-lg hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+<span class="">مشاهدة الفيديو</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+</article>
+</section><section id="view-record-minute" class="hidden max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg shadow-sm"><div id="record-success-alert" class="hidden mb-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-primary flex items-start gap-3"><span class="material-symbols-outlined text-emerald-600 text-2xl">check_circle</span><div><h4 class="font-bold text-sm text-emerald-800 mb-0.5">تم إرسال دقيقتك المعرفية بنجاح!</h4><p class="text-xs text-emerald-700 leading-relaxed">شكرًا لمشاركتك. ستتم مراجعة الدقيقة من قبل الفريق المختص قبل إتاحتها للمشاهدة والاستماع للمنسوبين.</p></div></div><form id="minute-record-form" onsubmit="event.preventDefault(); document.getElementById('record-success-alert').classList.remove('hidden'); document.getElementById('minute-record-form').reset(); window.scrollTo({top: 250, behavior: 'smooth'});" class="space-y-6"><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><label class="block font-semibold text-primary text-sm mb-2">عنوان الدقيقة <span class="text-error">*</span></label><input type="text" required="" placeholder="اكتب عنواناً مختصراً وواضحاً لدقيقتك المعرفية..." class="w-full px-4 py-2.5 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-sm text-on-surface bg-white"></div><div><div class="flex items-center justify-between mb-2"><label class="block font-semibold text-primary text-sm">اسم المتحدث</label><span class="text-[11px] bg-[#075844]/10 text-primary px-2 py-0.5 rounded font-medium">مسحوب تلقائياً من الحساب</span></div><div class="relative"><input type="text" value="سارة العمري" readonly="" class="w-full px-4 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-high/60 text-sm text-on-surface font-semibold cursor-not-allowed pr-10"><span class="material-symbols-outlined absolute right-3 top-3 text-[18px] text-outline">lock</span></div></div></div><div><label class="block font-semibold text-primary text-sm mb-2">ملخص قصير <span class="text-error">*</span></label><textarea rows="3" required="" placeholder="اكتب نبذة أو ملخصاً موجزاً يوضح الفكرة الأساسية للدقيقة المعرفية..." class="w-full px-4 py-2.5 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-sm text-on-surface bg-white"></textarea></div><div><label class="block font-semibold text-primary text-sm mb-2">اختيار نوع المحتوى <span class="text-error">*</span></label><div class="flex items-center gap-6"><label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="media_type" value="video" checked="" class="text-primary focus:ring-primary h-4 w-4 border-outline-variant"><span class="text-sm font-medium text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">videocam</span>فيديو</span></label><label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="media_type" value="audio" class="text-primary focus:ring-primary h-4 w-4 border-outline-variant"><span class="text-sm font-medium text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">mic</span>صوت</span></label></div></div><div><label class="block font-semibold text-primary text-sm mb-3">خيار التسجيل أو الرفع <span class="text-error">*</span></label><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="border-2 border-dashed border-outline-variant hover:border-primary/50 rounded-xl p-5 flex flex-col items-center justify-center text-center transition-all bg-surface-container-low/40"><div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-3"><span class="material-symbols-outlined text-2xl">fiber_manual_record</span></div><h4 class="font-bold text-sm text-primary mb-1">التسجيل مباشرة من المتصفح</h4><p class="text-xs text-on-surface-variant mb-4">استخدم الكاميرا والمايكروفون للتسجيل المباشر</p><button type="button" onclick="this.textContent = 'جاري التجهيز للتسجيل...'; setTimeout(() =&gt; this.textContent = 'بدء التسجيل', 1800);" class="px-5 py-2 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">mic</span><span class="">بدء التسجيل</span></button></div><div class="border-2 border-dashed border-outline-variant hover:border-primary/50 rounded-xl p-5 flex flex-col items-center justify-center text-center transition-all bg-surface-container-low/40"><div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary mb-3"><span class="material-symbols-outlined text-2xl">cloud_upload</span></div><h4 class="font-bold text-sm text-primary mb-1">رفع ملف صوتي أو فيديو</h4><p class="text-xs text-on-surface-variant mb-3">اسحب الملف هنا أو انقر للاختيار (MP3, MP4, WAV)</p><input type="file" accept="video/*,audio/*" class="text-xs text-on-surface-variant file:mr-0 file:ml-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-surface-container-high file:text-primary hover:file:bg-surface-container-highest cursor-pointer"></div></div></div><div class="pt-4 border-t border-outline-variant/60 flex flex-col sm:flex-row items-center justify-between gap-4"><button type="submit" class="w-full sm:w-auto px-8 py-3 bg-secondary hover:bg-secondary/90 text-primary font-bold text-sm rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[20px]">send</span><span class="">إرسال للمراجعة</span></button></div><p class="text-xs text-on-surface-variant bg-surface-container-high/50 p-3 rounded-lg border border-outline-variant/50">تُنشر الدقيقة كمحتوى للاستماع والمشاهدة بعد مراجعتها، ولا تدخل ضمن نتائج البحث في اسأل خبيرًا.</p></form></section><script>function switchTab(tab) { const watchView = document.getElementById('view-listen-watch'); const recordView = document.getElementById('view-record-minute'); const watchBtn = document.getElementById('tab-listen-watch'); const recordBtn = document.getElementById('tab-record-minute'); if (!watchView || !recordView || !watchBtn || !recordBtn) return; if (tab === 'watch') { watchView.classList.remove('hidden'); recordView.classList.add('hidden'); watchBtn.className = 'px-6 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm transition-all shadow-sm flex items-center gap-2'; recordBtn.className = 'px-6 py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary font-semibold text-sm transition-all border border-transparent hover:border-outline-variant flex items-center gap-2'; } else { watchView.classList.add('hidden'); recordView.classList.remove('hidden'); recordBtn.className = 'px-6 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm transition-all shadow-sm flex items-center gap-2'; watchBtn.className = 'px-6 py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary font-semibold text-sm transition-all border border-transparent hover:border-outline-variant flex items-center gap-2'; } }</script>
+<!-- تذييل معلوماتي خفيف -->
+
+</main>
+
+
+</body></html>

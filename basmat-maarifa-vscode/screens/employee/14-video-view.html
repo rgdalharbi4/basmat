@@ -1,0 +1,266 @@
+<!DOCTYPE html><html class="h-full" dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>بصمة معرفة - دقيقة معرفة</title>
+<!-- Google Fonts: IBM Plex Sans Arabic -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#efc048",
+            "surface-container-highest": "#c1ecda",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#cffae8",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#00513f",
+            "tertiary-container": "#005845",
+            "tertiary-fixed-dim": "#85d6bb",
+            "on-surface-variant": "#3f4944",
+            "on-primary-container": "#87ccb3",
+            "inverse-primary": "#8fd4ba",
+            "tertiary-fixed": "#a1f3d6",
+            "outline": "#6f7974",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fece55",
+            "surface-bright": "#e7fff3",
+            "surface-dim": "#b9e3d2",
+            "surface-container": "#ccf7e5",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#d2fdeb",
+            "on-primary-fixed-variant": "#00513e",
+            "on-surface": "#002117",
+            "error": "#ba1a1a",
+            "primary": "#003f2f",
+            "on-tertiary-fixed": "#002118",
+            "surface-variant": "#c1ecda",
+            "on-background": "#002117",
+            "secondary": "#775a00",
+            "outline-variant": "#bfc9c3",
+            "surface-container-high": "#c7f2e0",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#8fd4ba",
+            "primary-container": "#075844",
+            "inverse-surface": "#0e372b",
+            "tertiary": "#003f30",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#abf1d6",
+            "on-secondary-fixed-variant": "#5a4300",
+            "on-secondary-fixed": "#251a00",
+            "surface-tint": "#236a55",
+            "on-primary-fixed": "#002117",
+            "on-secondary-container": "#735700",
+            "secondary-fixed": "#ffdf98",
+            "on-tertiary-container": "#7dceb3",
+            "surface": "#ffffff",
+            "background": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            gutter: "1.5rem",
+            margin: "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter-desktop": "2rem",
+            "margin-desktop": "2.5rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "display-lg-mobile": ["IBM Plex Sans Arabic", "sans-serif"],
+            "label-sm": ["IBM Plex Sans Arabic", "sans-serif"],
+            "headline-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+            "body-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+            "label-lg": ["IBM Plex Sans Arabic", "sans-serif"],
+            "body-md": ["IBM Plex Sans Arabic", "sans-serif"],
+            "body-sm": ["IBM Plex Sans Arabic", "sans-serif"],
+            "headline-sm": ["IBM Plex Sans Arabic", "sans-serif"],
+            "headline-xl": ["IBM Plex Sans Arabic", "sans-serif"],
+            "label-md": ["IBM Plex Sans Arabic", "sans-serif"],
+            "display-lg": ["IBM Plex Sans Arabic", "sans-serif"]
+          },
+          fontSize: {
+            "display-lg-mobile": ["1.75rem", { lineHeight: "2.375rem", fontWeight: "700" }],
+            "label-sm": ["0.6875rem", { lineHeight: "0.875rem", fontWeight: "500" }],
+            "headline-lg": ["1.375rem", { lineHeight: "2rem", fontWeight: "600" }],
+            "body-lg": ["1.0625rem", { lineHeight: "1.875rem", fontWeight: "400" }],
+            "label-lg": ["0.875rem", { lineHeight: "1.25rem", fontWeight: "600" }],
+            "body-md": ["0.9375rem", { lineHeight: "1.625rem", fontWeight: "400" }],
+            "body-sm": ["0.8125rem", { lineHeight: "1.375rem", fontWeight: "400" }],
+            "headline-sm": ["1.125rem", { lineHeight: "1.75rem", fontWeight: "600" }],
+            "headline-xl": ["1.75rem", { lineHeight: "2.5rem", fontWeight: "600" }],
+            "label-md": ["0.75rem", { lineHeight: "1rem", fontWeight: "500" }],
+            "display-lg": ["2.25rem", { lineHeight: "3rem", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #ffffff;
+      color: #002117;
+      margin: 0;
+      padding: 0;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation Header -->
+<header class="w-full h-16 bg-surface-container-lowest border-b border-outline-variant/40 flex items-center justify-between px-margin-desktop sticky top-0 z-50">
+<div class="max-w-[1440px] w-full mx-auto flex items-center justify-between">
+<!-- Right: Logo & Institutional Brand -->
+<div class="flex items-center gap-3">
+<!-- Fingerprint Icon inside deep green circle with gold border -->
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border-2 border-secondary-fixed-dim shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-white text-[22px]" data-icon="fingerprint">fingerprint</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">بصمة معرفة</span>
+</div>
+</div>
+<!-- Left: User Profile, Notifications, Divider, Logout -->
+<div class="flex items-center gap-4">
+<!-- User Greeting -->
+<div class="flex items-center gap-2 text-on-surface">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+</div>
+<span class="font-label-lg text-label-lg font-medium text-on-surface">مرحبًا، سارة</span>
+</div>
+<!-- Notification Bell with Gold indicator dot -->
+<button aria-label="التنبيهات" class="relative p-2 text-on-surface-variant hover:text-primary transition-colors focus:outline-none rounded-lg" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-secondary-fixed-dim rounded-full border-2 border-surface-container-lowest"></span>
+</button>
+<!-- Vertical Divider -->
+<div class="h-5 w-[1px] bg-outline-variant/60"></div>
+<!-- Logout Button in Signature Institutional Gold -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-secondary-container/90 hover:bg-secondary-container text-on-secondary-fixed font-label-md text-label-md font-semibold transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="logout">logout</span>
+<span>تسجيل الخروج</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full bg-surface-container-lowest py-8 px-margin-desktop">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-6">
+<!-- Breadcrumbs and Navigation Row -->
+<div class="w-full flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<!-- Return Link -->
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg font-semibold text-primary hover:text-primary-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+<span>العودة إلى دقيقة معرفة</span>
+</a>
+<!-- Breadcrumb Pathway -->
+<nav aria-label="مسار التنقل" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">الرئيسية</span>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="chevron_left">chevron_left</span>
+<span class="hover:text-primary transition-colors cursor-pointer">دقيقة معرفة</span>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="chevron_left">chevron_left</span>
+<span class="text-primary font-semibold">مشاهدة الفيديو</span>
+</nav>
+</div>
+<!-- Title & Speaker Meta Section -->
+<div class="flex flex-col gap-1.5 pt-2">
+<h1 class="font-headline-xl text-headline-xl text-primary-container font-bold tracking-tight">
+          خطوات حماية الحساب من محاولات الدخول غير المصرح بها
+        </h1>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="verified_user">verified_user</span>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">
+            صاحب المعرفة: <span class="text-primary font-semibold">إيمان الحازمي</span>
+</p>
+</div>
+</div>
+<!-- Video Player Container (Aspect Ratio 16:9) -->
+<div class="w-full rounded-xl overflow-hidden bg-primary-container relative aspect-video flex flex-col justify-between shadow-[0_12px_36px_-6px_rgba(7,88,68,0.18)] border border-outline-variant/30 select-none group">
+<!-- Subtle Institutional Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary-container/85 to-primary/40 pointer-events-none"></div>
+<!-- Upper Video Area / Subtle Watermark -->
+<div class="relative z-10 w-full p-6 flex justify-between items-start">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest/10 backdrop-blur-sm border border-white/10 text-white font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span>دقيقة معرفة</span>
+</div>
+</div>
+<!-- Center: Distinctive Gold Play Button -->
+<div class="relative z-10 flex items-center justify-center my-auto">
+<button aria-label="تشغيل الفيديو" class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-secondary-container text-primary-container flex items-center justify-center shadow-[0_8px_28px_rgba(220,175,56,0.35)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer hover:bg-secondary-fixed-dim" type="button">
+<span class="material-symbols-outlined text-[44px] md:text-[52px] translate-x-[-2px] fill-icon" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Bottom: Sophisticated Player Controls Mockup -->
+<div class="relative z-10 w-full p-4 md:p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col gap-3">
+<!-- Progress Bar Rail -->
+<div class="w-full flex items-center group/bar cursor-pointer">
+<div class="w-full h-1.5 bg-white/20 rounded-full relative overflow-hidden">
+<div class="absolute top-0 right-0 h-full w-[38%] bg-secondary-fixed-dim rounded-full"></div>
+</div>
+</div>
+<!-- Controls Bar -->
+<div class="w-full flex items-center justify-between text-white font-label-md text-label-md">
+<!-- Right Controls: Play / Volume / Indicators -->
+<div class="flex items-center gap-4">
+<button aria-label="تشغيل" class="text-white hover:text-secondary-fixed-dim transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px] fill-icon" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="الصوت" class="text-white hover:text-secondary-fixed-dim transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+<!-- Subtle volume indicator bar -->
+<div class="w-16 h-1 bg-white/30 rounded-full hidden sm:block">
+<div class="w-3/4 h-full bg-white rounded-full"></div>
+</div>
+</div>
+<!-- Left Controls: Settings / Picture in Picture / Fullscreen -->
+<div class="flex items-center gap-3">
+<button aria-label="الإعدادات" class="text-white/80 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+<button aria-label="صورة داخل صورة" class="text-white/80 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="picture_in_picture_alt">picture_in_picture_alt</span>
+</button>
+<button aria-label="ملء الشاشة" class="text-white/80 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Description Card -->
+<div class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-lg shadow-sm">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          يوضح هذا الفيديو مجموعة من الخطوات الأساسية التي تساعد على حماية الحساب وتقليل محاولات الدخول غير المصرح بها
+        </p>
+</div>
+</div>
+</main>
+</body></html>

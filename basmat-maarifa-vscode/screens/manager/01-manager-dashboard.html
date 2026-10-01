@@ -1,0 +1,496 @@
+<!DOCTYPE html><html lang="ar" dir="rtl" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بصمة معرفة - لوحة مؤشرات إدارتي</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #ffffff;
+      color: #1e293b;
+    }
+    .primary-color {
+      color: #075844;
+    }
+    .bg-primary-custom {
+      background-color: #075844;
+    }
+    .secondary-color {
+      color: #dcaf38;
+    }
+    .bg-secondary-custom {
+      background-color: #dcaf38;
+    }
+    .border-primary-custom {
+      border-color: #075844;
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen text-slate-800 antialiased flex flex-col items-center">
+  <!-- Main Desktop Canvas Container: 1280px width -->
+  <div class="w-[1280px] min-h-[832px] bg-white flex flex-col shadow-sm relative border-x border-slate-100">
+    
+    <!-- Top Header (Standard Platform Header) -->
+    <header class="w-full h-20 bg-white border-b border-slate-100 px-10 flex items-center justify-between sticky top-0 z-30 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <!-- Right Side: Logo & Platform Name -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-full bg-[#075844] flex items-center justify-center shadow-sm">
+          <!-- Official Fingerprint Icon SVG -->
+          <svg class="w-6 h-6 text-[#dcaf38]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 0-6.88 17.24"></path>
+            <path d="M8.5 6a7 7 0 0 1 10.42 5.5"></path>
+            <path d="M6 10a10 10 0 0 0 1.5 5.5"></path>
+            <path d="M12 10a4 4 0 0 0-4 4c0 3 1.5 5 4 6.5"></path>
+            <path d="M15.5 12a3.5 3.5 0 0 0-3.5 3.5c0 2 .5 3.5 2 4.5"></path>
+            <path d="M12 6a6 6 0 0 1 6 6c0 3-1 5.5-3 7"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold text-[#075844] tracking-tight">بصمة معرفة</span>
+          <span class="text-[11px] text-slate-400 font-medium">بوابة إدارة الأثر المعرفي</span>
+        </div>
+      </div>
+
+      <!-- Left Side: User Profile, Notifications, Logout -->
+      <div class="flex items-center gap-5">
+        <!-- User Pill -->
+        <div class="flex items-center gap-2.5 py-1.5 px-3 rounded-full bg-slate-50 border border-slate-200">
+          <div class="w-7 h-7 rounded-full bg-[#075844]/10 text-[#075844] flex items-center justify-center font-bold text-xs">
+            <svg class="w-4 h-4 text-[#075844]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="flex flex-col text-right">
+            <span class="text-xs font-semibold text-slate-700 leading-tight">م. عبدالله الشمري</span>
+            <span class="text-[10px] text-slate-500">مدير إدارة تقنية المعلومات</span>
+          </div>
+        </div>
+
+        <!-- Notification Bell -->
+        <button class="relative p-2 text-slate-600 hover:text-[#075844] transition-colors rounded-full hover:bg-slate-50">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+
+        <div class="h-6 w-px bg-slate-200"></div>
+
+        <!-- Logout Button -->
+        <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#dcaf38] hover:bg-[#c99e2e] text-[#075844] font-semibold text-sm transition-all shadow-sm">
+          <span class="">تسجيل الخروج</span>
+          <svg class="w-4 h-4 transform rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Content (Scrollable Container) -->
+    <main class="flex-1 px-10 py-7 overflow-y-auto space-y-7"><!-- Top Bar: Breadcrumb, Title, Filters -->
+<div class="flex flex-col gap-3">
+  <!-- Breadcrumb -->
+  <div class="flex items-center gap-2 text-xs font-medium text-slate-400">
+    <span class="hover:text-slate-600 cursor-pointer">الرئيسية</span>
+    <span class="">←</span>
+    <span class="text-[#075844] font-semibold">لوحة مؤشرات الأداء</span>
+  </div>
+
+  <div class="flex items-end justify-between">
+    <div class="flex flex-col gap-1.5">
+      <h1 class="text-2xl font-bold text-[#075844]">لوحة مؤشرات الأداء</h1>
+      <p class="text-sm text-slate-500 font-normal">متابعة شمولية لمؤشرات الأداء وأثر المعرفة وتفاعل المستخدمين في منصة بصمة معرفة</p>
+    </div>
+
+    <!-- Controls & Filters (Period & Department) -->
+    <div class="flex items-center gap-3">
+      <!-- Department Filter -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-slate-500 font-medium">الإدارة:</label>
+        <div class="relative">
+          <select class="appearance-none bg-white border border-slate-200 rounded-xl px-4 py-2 pr-4 pl-9 text-xs font-semibold text-slate-700 hover:border-[#075844] focus:outline-none focus:ring-2 focus:ring-[#075844]/20 cursor-pointer shadow-sm transition-all">
+            <option value="all" selected="">جميع الإدارات</option>
+            <option value="it">إدارة تقنية المعلومات</option>
+            <option value="hr">إدارة الموارد البشرية</option>
+            <option value="digital">إدارة التحول الرقمي</option>
+            <option value="admin">إدارة الشؤون الإدارية</option>
+            <option value="others">إدارات أخرى</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2.5 text-slate-400">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Period Filter -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-slate-500 font-medium">الفترة:</label>
+        <div class="relative">
+          <select class="appearance-none bg-white border border-slate-200 rounded-xl px-4 py-2 pr-4 pl-9 text-xs font-semibold text-slate-700 hover:border-[#075844] focus:outline-none focus:ring-2 focus:ring-[#075844]/20 cursor-pointer shadow-sm transition-all">
+            <option value="this_month" selected="">هذا الشهر</option>
+            <option value="3_months">آخر ٣ أشهر</option>
+            <option value="6_months">آخر ٦ أشهر</option>
+            <option value="this_year">هذه السنة</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2.5 text-slate-400">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 Primary Summary KPI Cards in One Row -->
+<section class="grid grid-cols-5 gap-3.5">
+  <!-- Card 1: عدد المعارف الموثقة والمعتمدة -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-[#075844]/40 transition-all">
+    <div class="flex items-center justify-between">
+      <span class="text-xs font-semibold text-slate-600">المعارف المعتمدة</span>
+      <span class="w-7 h-7 rounded-lg bg-[#075844]/10 text-[#075844] flex items-center justify-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="mt-3 flex items-baseline gap-1.5">
+      <span class="text-3xl font-bold text-[#dcaf38]">٥</span>
+      <span class="text-xs font-semibold text-slate-500">معرفة موثقة</span>
+    </div>
+    <div class="mt-2 text-[10px] text-slate-400">إجمالي المحتوى المؤسسي المعتمد</div>
+  </div>
+
+  <!-- Card 2: نسبة نمو قاعدة المعرفة -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-[#075844]/40 transition-all">
+    <div class="flex items-center justify-between">
+      <span class="text-xs font-semibold text-slate-600">نمو قاعدة المعرفة</span>
+      <span class="w-7 h-7 rounded-lg bg-amber-50 text-[#dcaf38] flex items-center justify-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+      </span>
+    </div>
+    <div class="mt-3 flex items-baseline gap-1.5">
+      <span class="text-3xl font-bold text-[#075844]">١٢٪</span>
+      <span class="text-xs font-semibold text-[#dcaf38]">هذا الشهر</span>
+    </div>
+    <div class="mt-2 text-[10px] text-slate-400">معدل الإضافة والتحديث الشهري</div>
+  </div>
+
+  <!-- Card 3: المستخدمون النشطون -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-[#075844]/40 transition-all">
+    <div class="flex items-center justify-between">
+      <span class="text-xs font-semibold text-slate-600">المستخدمون النشطون</span>
+      <span class="w-7 h-7 rounded-lg bg-[#075844]/10 text-[#075844] flex items-center justify-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="mt-3 flex items-baseline gap-1.5">
+      <span class="text-3xl font-bold text-[#dcaf38]">٥٪</span>
+      <span class="text-xs font-semibold text-slate-500">من الموظفين</span>
+    </div>
+    <div class="mt-2 text-[10px] text-slate-400">نسبة التفاعل المستمر بالمنصة</div>
+  </div>
+
+  <!-- Card 4: نسبة نجاح إجابات المساعد الذكي -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-[#075844]/40 transition-all">
+    <div class="flex items-center justify-between">
+      <span class="text-xs font-semibold text-slate-600">نجاح المساعد الذكي</span>
+      <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">إجابات دقيقة</span>
+    </div>
+    <div class="mt-3 flex items-baseline gap-1.5">
+      <span class="text-3xl font-bold text-[#075844]">٨٤٪</span>
+      <span class="text-xs font-semibold text-emerald-600">إجابات دقيقة</span>
+    </div>
+    <div class="mt-2 text-[10px] text-slate-400">إجابة المشكلات عبر الشات بوت</div>
+  </div>
+
+  <!-- Card 5: رضا المستخدمين -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:border-[#075844]/40 transition-all">
+    <div class="flex items-center justify-between">
+      <span class="text-xs font-semibold text-slate-600">رضا المستخدمين</span>
+      <span class="w-7 h-7 rounded-lg bg-amber-50 text-[#dcaf38] flex items-center justify-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </span>
+    </div>
+    <div class="mt-3 flex items-baseline gap-1.5">
+      <span class="text-3xl font-bold text-[#dcaf38]">٨٧٪</span>
+      
+    </div>
+    <div class="mt-2 text-[10px] text-slate-400">تقييم المستفيدين لحلول المنصة</div>
+  </div>
+</section>
+
+<!-- Detailed Charts & Analytical Indicators (2 Columns Grid) -->
+<div class="grid grid-cols-2 gap-5">
+  
+  <!-- Section 1: الفجوات المعرفية -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+    <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-4 rounded-full bg-[#075844]"></span>
+        <h2 class="text-sm font-bold text-[#075844]">مؤشر الفجوات المعرفية</h2>
+      </div>
+      <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">تغطية ٩٠٪ بمعارف جديدة</span>
+    </div>
+    <p class="text-xs text-slate-400 mb-3">انخفاض مستمر في الأسئلة المعرفية غير المجابة مع تسارع تغطيتها بحلول موثقة</p>
+
+    <!-- Visual Monthly Bar Trend & Coverage Progress -->
+    <div class="space-y-4">
+      <!-- Bars of Unanswered Questions by Month -->
+      <div class="bg-slate-50/70 p-3.5 rounded-xl border border-slate-100 space-y-2.5">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-600 mb-1">
+          <span class="">الأسئلة دون إجابة عبر الأشهر الأخيرة</span>
+          <span class="text-[11px] text-[#075844] font-bold">مسار إيجابي هابط</span>
+        </div>
+
+        <!-- مايو: 15 -->
+        <div class="flex items-center gap-3 text-xs">
+          <span class="w-12 text-slate-500 font-medium">مايو</span>
+          <div class="flex-1 bg-slate-200/80 rounded-full h-2.5 overflow-hidden">
+            <div class="bg-slate-400 h-2.5 rounded-full" style="width: 100%;"></div>
+          </div>
+          <span class="w-12 text-left font-bold text-slate-600">١٥ سؤال</span>
+        </div>
+
+        <!-- يونيو: 12 -->
+        <div class="flex items-center gap-3 text-xs">
+          <span class="w-12 text-slate-500 font-medium">يونيو</span>
+          <div class="flex-1 bg-slate-200/80 rounded-full h-2.5 overflow-hidden">
+            <div class="bg-slate-400 h-2.5 rounded-full" style="width: 80%;"></div>
+          </div>
+          <span class="w-12 text-left font-bold text-slate-600">١٢ سؤال</span>
+        </div>
+
+        <!-- يوليو: 8 -->
+        <div class="flex items-center gap-3 text-xs">
+          <span class="w-12 text-slate-500 font-medium">يوليو</span>
+          <div class="flex-1 bg-slate-200/80 rounded-full h-2.5 overflow-hidden">
+            <div class="bg-[#dcaf38] h-2.5 rounded-full" style="width: 53.3%;"></div>
+          </div>
+          <span class="w-12 text-left font-bold text-[#dcaf38]">٨ أسئلة</span>
+        </div>
+
+        <!-- أغسطس: 6 -->
+        <div class="flex items-center gap-3 text-xs">
+          <span class="w-12 text-slate-500 font-medium">أغسطس</span>
+          <div class="flex-1 bg-slate-200/80 rounded-full h-2.5 overflow-hidden">
+            <div class="bg-[#075844]/80 h-2.5 rounded-full" style="width: 40%;"></div>
+          </div>
+          <span class="w-12 text-left font-bold text-[#075844]">٦ أسئلة</span>
+        </div>
+
+        <!-- سبتمبر: 3 -->
+        <div class="flex items-center gap-3 text-xs">
+          <span class="w-12 text-[#075844] font-bold">سبتمبر</span>
+          <div class="flex-1 bg-slate-200/80 rounded-full h-2.5 overflow-hidden">
+            <div class="bg-[#075844] h-2.5 rounded-full" style="width: 20%;"></div>
+          </div>
+          <span class="w-12 text-left font-bold text-[#075844]">٣ فقط</span>
+        </div>
+      </div>
+
+      <!-- Summary Metric: Coverage Percentage 90% -->
+      <div class="flex items-center justify-between p-3 rounded-xl bg-gradient-to-br from-[#075844]/5 to-white border border-[#075844]/20">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-xs font-bold text-[#075844]">نسبة الفجوات المعرفية المغطاة</span>
+          <span class="text-[11px] text-slate-500">تم توثيق حلول جديدة وتضمينها بقاعدة المعرفة</span>
+        </div>
+        <div class="flex items-baseline gap-1">
+          <span class="text-2xl font-bold text-[#dcaf38]">٩٠٪</span>
+          <span class="text-xs font-semibold text-emerald-700">محققة</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: مساهمة الإدارات في قاعدة المعرفة -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+    <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-4 rounded-full bg-[#dcaf38]"></span>
+        <h2 class="text-sm font-bold text-[#075844]">مساهمة الإدارات في نشر المعرفة</h2>
+      </div>
+      <span class="text-[11px] font-medium text-slate-400">إجمالي: ١٢٤ معرفة</span>
+    </div>
+    <p class="text-xs text-slate-400 mb-3">مقارنة توزيع المعارف الموثقة والمعتمدة بين مختلف قطاعات وإدارات المؤسسة</p>
+
+    <!-- Horizontal Bars Comparison -->
+    <div class="space-y-3">
+      <!-- IT: 36 -->
+      <div class="space-y-1">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">إدارة تقنية المعلومات</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-bold text-[#075844]">٣٦</span>
+            <span class="text-[10px] text-slate-400">معرفة (٢٩٪)</span>
+          </div>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+          <div class="bg-[#075844] h-3 rounded-full transition-all" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- HR: 28 -->
+      <div class="space-y-1">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">إدارة الموارد البشرية</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-bold text-[#dcaf38]">٢٨</span>
+            <span class="text-[10px] text-slate-400">معرفة (٢٣٪)</span>
+          </div>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+          <div class="bg-[#dcaf38] h-3 rounded-full transition-all" style="width: 77.7%;"></div>
+        </div>
+      </div>
+
+      <!-- Digital Transformation: 24 -->
+      <div class="space-y-1">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">إدارة التحول الرقمي</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-bold text-slate-700">٢٤</span>
+            <span class="text-[10px] text-slate-400">معرفة (١٩٪)</span>
+          </div>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+          <div class="bg-[#075844]/80 h-3 rounded-full transition-all" style="width: 66.6%;"></div>
+        </div>
+      </div>
+
+      <!-- Admin: 20 -->
+      <div class="space-y-1">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-700">إدارة الشؤون الإدارية</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-bold text-slate-700">٢٠</span>
+            <span class="text-[10px] text-slate-400">معرفة (١٦٪)</span>
+          </div>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+          <div class="bg-[#dcaf38]/80 h-3 rounded-full transition-all" style="width: 55.5%;"></div>
+        </div>
+      </div>
+
+      <!-- Others: 16 -->
+      <div class="space-y-1">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-semibold text-slate-500">إدارات أخرى</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-bold text-slate-600">١٦</span>
+            <span class="text-[10px] text-slate-400">معرفة (١٣٪)</span>
+          </div>
+        </div>
+        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+          <div class="bg-slate-300 h-3 rounded-full transition-all" style="width: 44.4%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Quality & Efficiency Row (تحديث المعارف في وقتها + متوسط زمن الوصول للمعلومة) -->
+<div class="grid grid-cols-2 gap-5">
+  
+  <!-- Card: تحديث المعارف في وقتها -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex items-center justify-between">
+    <div class="flex-1 space-y-2.5 pr-1">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-4 rounded-full bg-[#075844]"></span>
+        <h3 class="text-sm font-bold text-[#075844]">تحديث المعارف في وقتها</h3>
+        <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          محقق
+        </span>
+      </div>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        تمثل المعارف التي تم تحديثها ومراجعتها ضمن موعدها المحدد دورياً
+      </p>
+      <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden mt-2">
+        <div class="bg-[#075844] h-2.5 rounded-full" style="width: 95%;"></div>
+      </div>
+    </div>
+
+    <!-- Percentage Badge Graphic -->
+    <div class="flex-shrink-0 mr-6 w-24 h-24 rounded-full bg-slate-50 border-4 border-[#075844] flex flex-col items-center justify-center text-center shadow-sm">
+      <span class="text-2xl font-bold text-[#dcaf38] leading-none">٩٥٪</span>
+      <span class="text-[10px] text-slate-500 font-medium mt-1">التزام دوري</span>
+    </div>
+  </div>
+
+  <!-- Card: متوسط زمن الوصول للمعلومة -->
+  <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex items-center justify-between">
+    <div class="flex-1 space-y-2.5 pr-1">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-4 rounded-full bg-[#dcaf38]"></span>
+        <h3 class="text-sm font-bold text-[#075844]">متوسط زمن الوصول للمعلومة</h3>
+        <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          محقق
+        </span>
+      </div>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        المستهدف: الوصول للمعلومة خلال أقل من دقيقتين
+      </p>
+      <div class="flex items-center gap-2 mt-2 text-[11px] text-slate-500">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="">أسرع بـ ٢٥ ثانية عن الحد الأقصى المستهدف</span>
+      </div>
+    </div>
+
+    <!-- Big Metric Badge -->
+    <div class="flex-shrink-0 mr-6 px-4 py-3 rounded-2xl bg-gradient-to-br from-[#075844]/5 to-white border border-[#075844]/20 flex flex-col items-center justify-center text-center shadow-sm">
+      <span class="text-xl font-bold text-[#075844] leading-snug">دقيقة و٣٥ ثانية</span>
+      <span class="text-[10px] font-semibold text-[#dcaf38] mt-0.5">سرعة فائقة للموظف</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Calm Prototype Disclaimer Note -->
+<div class="pt-2 pb-2 text-center text-xs text-slate-400 font-normal">
+  * جميع الأرقام المعروضة هي بيانات تجريبية مخصصة للنموذج الأولي
+</div></main>
+
+  </div>
+
+
+
+
+
+
+</body></html>
