@@ -8,7 +8,27 @@ const seedKnowledge=[
 
  {id:4,title:'طلب تثبيت برنامج غير معتمد على جهاز الموظف',owner:'سارة العمري',showName:true,dept:'إدارة تقنية المعلومات',contact:'٢٣٤٥',challenge:'موظف يحتاج برنامجًا للعمل ولا يستطيع تثبيته لأنه لا يملك الصلاحية.',handling:'طُلب منه رفع طلب رسمي بدلًا من التثبيت المباشر، مع توضيح سبب الحاجة إلى البرنامج.',solution:['استلام طلب رسمي من الموظف يتضمن اسم البرنامج وسبب الحاجة إليه.','التحقق من أن البرنامج مناسب لمتطلبات العمل ولا يوجد بديل معتمد له.','إرسال البرنامج إلى إدارة أمن المعلومات لمراجعته والتأكد من سلامته.','بعد الموافقة، تثبيت البرنامج على جهاز الموظف بواسطة الجهة التقنية المختصة.'],lesson:'كل برنامج جديد يجب أن يمر بطلب رسمي ومراجعة أمنية، حتى لو كان الموظف مستعجلًا.',keywords:'تثبيت، برنامج، صلاحيات، طلب',category:'إجراء',status:'published',rating:4.5,uses:33,chatViews:45,regulation:'سياسة استخدام الأجهزة والبرمجيات',date:'2026-09-28'},
 
- {id:5,title:'تجهيز جهاز موظف جديد قبل أول يوم عمل',owner:'نورة الحربي',showName:true,dept:'إدارة تقنية المعلومات',contact:'٢٣٤٥',challenge:'الموظفون الجدد يستلمون أجهزتهم متأخرين، ويضيع أول يوم عمل في التجهيز.',handling:'تم إعداد قائمة تحقق موحدة تشمل الجهاز والحسابات والبرامج الأساسية.',solution:['استلام بيانات الموظف الجديد مسبقًا.','تجهيز الجهاز والحسابات والبرامج الأساسية.','اختبار تسجيل الدخول قبل التسليم.'],lesson:'التجهيز المسبق مع قائمة تحقق ثابتة يوفر أول يوم كامل للموظف الجديد.',keywords:'موظف جديد، تجهيز، جهاز، حساب',category:'درس مستفاد',status:'published',rating:5,uses:8,regulation:'لائحة إدارة الأصول التقنية',date:'2026-06-04'}
+ {id:5,title:'تجهيز جهاز موظف جديد قبل أول يوم عمل',owner:'نورة الحربي',showName:true,dept:'إدارة تقنية المعلومات',contact:'٢٣٤٥',challenge:'الموظفون الجدد يستلمون أجهزتهم متأخرين، ويضيع أول يوم عمل في التجهيز.',handling:'تم إعداد قائمة تحقق موحدة تشمل الجهاز والحسابات والبرامج الأساسية.',solution:['استلام بيانات الموظف الجديد مسبقًا.','تجهيز الجهاز والحسابات والبرامج الأساسية.','اختبار تسجيل الدخول قبل التسليم.'],lesson:'التجهيز المسبق مع قائمة تحقق ثابتة يوفر أول يوم كامل للموظف الجديد.',keywords:'موظف جديد، تجهيز، جهاز، حساب',category:'درس مستفاد',status:'published',rating:5,uses:8,regulation:'لائحة إدارة الأصول التقنية',date:'2026-06-04'},
+
+ {id:6,title:'تأخر البت في طلبات النقل الداخلي بين الإدارات',owner:'منى الدوسري',showName:true,dept:'إدارة الموارد البشرية',contact:'١١٢٠',challenge:'تراكمت طلبات نقل داخلي لعدة أشهر دون رد، مما سبب استياء الموظفين المتقدمين.',handling:'تم حصر الطلبات المتأخرة، وتصنيفها حسب تاريخ التقديم، وتحديد موعد أسبوعي ثابت للبت فيها مع الإدارات المعنية.',solution:['حصر جميع طلبات النقل المعلّقة في قائمة واحدة.','تحديد موعد أسبوعي ثابت لمراجعتها مع الإدارة المعنية.','إرسال رد للموظف خلال ٥ أيام عمل من تاريخ المراجعة.'],lesson:'تحديد موعد دوري ثابت لمراجعة الطلبات المتراكمة يمنع تكدسها ويحسّن تجربة الموظف.',keywords:'نقل داخلي، طلب، تأخير، موارد بشرية',category:'إجراء',status:'published',rating:4,uses:6,regulation:'لائحة الموارد البشرية',date:'2026-07-02'},
+
+ {id:7,title:'استفسارات متكررة من الموظفات حول آلية طلب إجازة الأمومة',owner:'هيا الزهراني',showName:true,dept:'إدارة الموارد البشرية',contact:'١١٢٥',challenge:'تكرر استفسار عدة موظفات عن خطوات طلب إجازة الأمومة ومدتها ووقت تقديم الطلب المناسب.',handling:'تم إعداد إجابة موحدة توضح الخطوات والمستندات المطلوبة ومدة الإجازة النظامية، ومشاركتها مع الموظفات عبر البريد الداخلي.',solution:['تقديم طلب الإجازة قبل الولادة بمدة لا تقل عن أسبوعين.','إرفاق التقرير الطبي المحدد لتاريخ الولادة المتوقع.','تحديد مدة الإجازة وفق اللائحة، مع إمكانية التمديد بطلب إضافي.'],lesson:'الأسئلة المتكررة عن نفس الإجراء تستحق صياغة إجابة موحدة واحدة بدل الرد على كل استفسار منفردًا.',keywords:'إجازة أمومة، موارد بشرية، طلب، موظفة',category:'درس مستفاد',status:'published',rating:4.5,uses:9,regulation:'لائحة الموارد البشرية',date:'2026-07-02'},
+
+ {id:8,title:'تأخر مراجعة عقد مع مورد خارجي قبل التوقيع',owner:'فيصل القرني',showName:true,dept:'إدارة الشؤون القانونية',contact:'١٣١٠',challenge:'عقد مع مورد كان ينتظر التوقيع، وتأخرت المراجعة القانونية أكثر من أسبوعين دون سبب واضح لصاحب الطلب.',handling:'تم التواصل مع صاحب الطلب لتوضيح مراحل المراجعة المتبقية، وتحديد موعد تسليم نهائي بعد تنسيق مباشر مع المستشار القانوني المختص.',solution:['حصر الملاحظات القانونية على العقد في قائمة واحدة.','التواصل المباشر مع صاحب الطلب لتوضيح سبب التأخير والموعد المتوقع.','تحديد موعد نهائي واضح للرد على العقد.'],lesson:'إشعار صاحب طلب المراجعة بمراحل العمل المتبقية يقلل الاستفسارات المتكررة ويحسّن الشفافية.',keywords:'عقد، مراجعة قانونية، مورد، توقيع',category:'إجراء',status:'published',rating:4,uses:5,regulation:'لائحة المراسلات والتوثيق الإداري',date:'2026-08-11'},
+
+ {id:9,title:'استفسار متكرر عن صلاحية توقيع المذكرات الداخلية',owner:'موظف',showName:false,dept:'إدارة الشؤون القانونية',contact:'١٣١٠',challenge:'عدة إدارات ترسل مذكرات داخلية بدون التأكد من صلاحية التوقيع المطلوبة حسب نوع المذكرة ودرجتها.',handling:'تم توضيح مصفوفة الصلاحيات المعتمدة لكل نوع مذكرة، وربطها بأمثلة عملية لتسهيل الرجوع إليها.',solution:['تحديد نوع المذكرة ودرجتها (عادية/سرية/عاجلة).','مطابقة النوع مع مصفوفة صلاحيات التوقيع المعتمدة.','الرجوع للشؤون القانونية عند وجود أي التباس.'],lesson:'مشاركة مصفوفة الصلاحيات بشكل مرئي وواضح يقلل الأخطاء الإجرائية المتكررة في المراسلات.',keywords:'توقيع، مذكرة، صلاحية، مراسلات',category:'درس مستفاد',status:'published',rating:4.5,uses:7,regulation:'لائحة المراسلات والتوثيق الإداري',date:'2026-06-20'},
+
+ {id:10,title:'تكرار نفس الملاحظات في تقارير تقييم الأداء المؤسسي',owner:'عبير الشهري',showName:true,dept:'إدارة التميز المؤسسي',contact:'١٤٠٥',challenge:'لاحظ فريق التميز تكرار نفس الملاحظات في تقارير التقييم الفصلية لعدة إدارات دون معالجة جذرية.',handling:'تم تصنيف الملاحظات المتكررة في سجل موحد، وربط كل ملاحظة بخطة تحسين محددة ومتابعة تنفيذها فصليًا.',solution:['حصر الملاحظات المتكررة عبر التقارير السابقة.','تصنيفها حسب الإدارة ونوع الفجوة.','ربط كل ملاحظة بخطة تحسين وموعد متابعة.'],lesson:'بدون سجل موحد للملاحظات المتكررة، يصعب قياس تحسّن الإدارات من تقييم لآخر.',keywords:'تقييم أداء، تميز مؤسسي، ملاحظات متكررة',category:'مبادرة',status:'published',rating:4,uses:4,regulation:'دليل مؤشرات الأداء المؤسسي',date:'2026-05-18'},
+
+ {id:11,title:'صعوبة توحيد نماذج قياس رضا المستفيدين بين الإدارات',owner:'تركي آل الشيخ',showName:true,dept:'إدارة التميز المؤسسي',contact:'١٤٠٥',challenge:'كل إدارة تستخدم نموذج استبيان رضا مختلف، مما صعّب مقارنة النتائج على مستوى الجهة ككل.',handling:'تم تصميم نموذج استبيان موحد بمقياس ثابت من ٥ درجات، واعتماده كنموذج رسمي لجميع الإدارات.',solution:['تحديد المحاور المشتركة المطلوب قياسها في جميع الإدارات.','توحيد مقياس التقييم (من ١ إلى ٥) لكل المحاور.','تعميم النموذج الموحد واعتماده بدل النماذج الفردية.'],lesson:'توحيد أداة القياس قبل جمع البيانات أهم من محاولة توحيدها بعد التحليل.',keywords:'رضا المستفيدين، استبيان، تميز مؤسسي، توحيد',category:'حل',status:'published',rating:5,uses:11,regulation:'دليل مؤشرات الأداء المؤسسي',date:'2026-09-03'},
+
+ {id:12,title:'تأخر الرد على استفسارات المواطنين حول إجراء خدمة معينة',owner:'سلطان العنزي',showName:true,dept:'الإدارة العامة للشؤون المحلية',contact:'١٥٢٠',challenge:'وردت شكاوى من مواطنين بسبب تأخر الرد على استفساراتهم حول خطوات إنجاز معاملة معينة.',handling:'تم إعداد دليل إجابات سريعة لأكثر ١٠ استفسارات تكرارًا، وتوزيعه على موظفي التواصل المباشر مع المواطنين.',solution:['حصر أكثر الاستفسارات تكرارًا من سجل المكالمات والزيارات.','إعداد إجابة موحدة ومختصرة لكل استفسار.','تدريب موظفي الاستقبال على الدليل مباشرة.'],lesson:'تحليل الاستفسارات المتكررة دوريًا يسمح بإعداد ردود جاهزة تقلل زمن الانتظار على المواطن.',keywords:'استفسار مواطن، خدمة، شؤون محلية، زمن استجابة',category:'إجراء',status:'published',rating:4.5,uses:14,regulation:'لائحة الدعم الفني ومستويات الخدمة',date:'2026-08-27'},
+
+ {id:13,title:'تكرر أخطاء تعبئة نموذج طلب خدمة ميدانية من المستفيدين',owner:'موظف',showName:false,dept:'الإدارة العامة للشؤون المحلية',contact:'١٥٢٠',challenge:'نسبة كبيرة من نماذج طلب الخدمة الميدانية ترجع للمستفيد بسبب نقص أو خطأ في التعبئة.',handling:'تمت إعادة تصميم النموذج بإضافة أمثلة توضيحية بجانب كل حقل، وتعليمات مختصرة في أعلى النموذج.',solution:['مراجعة أكثر الحقول التي يتكرر فيها الخطأ.','إضافة مثال توضيحي أو ملاحظة قصيرة بجانب كل حقل صعب.','اختبار النموذج المعدّل مع عدد محدود قبل التعميم.'],lesson:'إضافة أمثلة توضيحية داخل النموذج نفسه أكثر فاعلية من كتيب تعليمات منفصل نادرًا ما يُقرأ.',keywords:'نموذج، طلب خدمة، تعبئة، أخطاء متكررة',category:'تجربة',status:'published',rating:4,uses:8,regulation:'لائحة الدعم الفني ومستويات الخدمة',date:'2026-07-29'},
+
+ {id:14,title:'تنسيق مواعيد الزيارات الرسمية بين عدة جهات دون تعارض',owner:'ريان البقمي',showName:true,dept:'مكتب وكيل الإمارة',contact:'١٠٠٥',challenge:'حدث تعارض بين موعدين لزيارات رسمية بسبب عدم وجود تقويم موحد مشترك بين المكاتب المعنية.',handling:'تم اعتماد تقويم إلكتروني مشترك تضاف إليه كل زيارة رسمية فور تحديدها من أي جهة معنية.',solution:['اعتماد تقويم إلكتروني واحد مشترك بين جميع المكاتب المعنية.','تسجيل أي موعد زيارة فور تثبيته مباشرة.','مراجعة التقويم أسبوعيًا قبل تثبيت أي موعد جديد.'],lesson:'تعدد التقاويم المنفصلة بين المكاتب هو السبب الأكثر شيوعًا لتعارض المواعيد الرسمية.',keywords:'تنسيق مواعيد، زيارة رسمية، تقويم مشترك',category:'حل',status:'published',rating:4.5,uses:6,regulation:'لائحة المراسلات والتوثيق الإداري',date:'2026-06-09'},
+
+ {id:15,title:'تأخر تحويل المعاملات الواردة بين المكاتب الداخلية',owner:'موظف',showName:false,dept:'مكتب وكيل الإمارة',contact:'١٠٠٥',challenge:'بعض المعاملات الواردة تأخذ وقتًا طويلاً للوصول للمكتب المختص بسبب تحويلها يدويًا بين عدة موظفين.',handling:'تم تفعيل خطوة تحويل مباشرة من نقطة الاستلام الأولى إلى المكتب المختص مباشرة، دون تمريرها عبر وسطاء.',solution:['تحديد المكتب المختص بكل نوع معاملة بشكل مسبق.','تحويل المعاملة مباشرة من نقطة الاستلام الأولى للمكتب المختص.','تأكيد الاستلام إلكترونيًا بدل التحويل الورقي.'],lesson:'كل حلقة وسيطة في تحويل المعاملة تضيف وقت انتظار غير ضروري؛ التحويل المباشر يختصر الزمن بشكل ملحوظ.',keywords:'معاملات واردة، تحويل، مكتب، تأخير',category:'إجراء',status:'published',rating:4,uses:5,regulation:'لائحة المراسلات والتوثيق الإداري',date:'2026-09-15'}
 
 ];
 
@@ -18,7 +38,13 @@ const regulations={
 
  'سياسة استخدام الأجهزة والبرمجيات':'https\://example.com/nuzum/devices',
 
- 'لائحة إدارة الأصول التقنية':'https\://example.com/nuzum/assets'
+ 'لائحة إدارة الأصول التقنية':'https\://example.com/nuzum/assets',
+
+ 'لائحة الموارد البشرية':'https\://example.com/nuzum/hr',
+
+ 'لائحة المراسلات والتوثيق الإداري':'https\://example.com/nuzum/correspondence',
+
+ 'دليل مؤشرات الأداء المؤسسي':'https\://example.com/nuzum/kpi-guide'
 
 };
 
@@ -38,7 +64,13 @@ const regulationsList=[
 
  {name:'لائحة الدعم الفني ومستويات الخدمة',type:'لائحة',desc:'آلية رفع طلبات الدعم وأزمنة الاستجابة المستهدفة.',keywords:'دعم فني بلاغ طلب تذكرة استجابة خدمة',url:'https\://example.com/nuzum/support'},
 
- {name:'سياسة النسخ الاحتياطي واستمرارية الأعمال',type:'سياسة',desc:'إجراءات حفظ النسخ الاحتياطية والتعافي عند الأعطال.',keywords:'نسخ احتياطي استرجاع تعافي عطل خادم توقف',url:'https\://example.com/nuzum/backup'}
+ {name:'سياسة النسخ الاحتياطي واستمرارية الأعمال',type:'سياسة',desc:'إجراءات حفظ النسخ الاحتياطية والتعافي عند الأعطال.',keywords:'نسخ احتياطي استرجاع تعافي عطل خادم توقف',url:'https\://example.com/nuzum/backup'},
+
+ {name:'لائحة الموارد البشرية',type:'لائحة',desc:'تنظيم إجراءات التوظيف والنقل والإجازات والتقييم الوظيفي.',keywords:'نقل داخلي ترقية إجازة أمومة تقييم وظيفي توظيف موارد بشرية',url:'https\://example.com/nuzum/hr'},
+
+ {name:'لائحة المراسلات والتوثيق الإداري',type:'لائحة',desc:'تنظيم تحرير المراسلات الرسمية وتوثيقها وتحويلها بين الإدارات والمكاتب.',keywords:'مراسلات تعميم خطاب توقيع مذكرة صلاحية توثيق تحويل معاملة زيارة موعد',url:'https\://example.com/nuzum/correspondence'},
+
+ {name:'دليل مؤشرات الأداء المؤسسي',type:'دليل',desc:'توحيد معايير قياس الأداء والجودة ورضا المستفيدين بين الإدارات.',keywords:'أداء مؤشر جودة رضا مستفيد تميز مؤسسي تقييم استبيان',url:'https\://example.com/nuzum/kpi-guide'}
 
 ];
 
@@ -66,9 +98,25 @@ function renderRegulationResults(){const v=document.getElementById('regSearch').
 
 function regulationsPage(){return shell(`${crumb('اللوائح والأنظمة')}${pageHead('اللوائح والأنظمة','ابحث في اللوائح والأنظمة المعتمدة، وستظهر لك أكثر خمس لوائح ارتباطًا ببحثك.')}<div class="card"><input id="regSearch" class="input" placeholder="ابحث باسم اللائحة أو بمشكلتك (مثال: كلمة المرور، طابعة، VPN)" oninput="renderRegulationResults()" autocomplete="off"><div class="section-title" style="margin-top:24px"><h2 id="regTitle">الأكثر ارتباطًا</h2></div><div id="regResults" class="list">${regulationResultsHtml('')}</div></div>`)}
 
-const profiles={
+const employees={
 
- employee:{name:'سارة العمري',first:'سارة',ext:'٢٣٤٥',title:'موظف · إدارة تقنية المعلومات',female:true},
+ e1:{name:'سارة العمري',first:'سارة',ext:'٢٣٤٥',title:'موظفة · إدارة تقنية المعلومات',dept:'إدارة تقنية المعلومات',female:true},
+
+ e2:{name:'خالد العتيبي',first:'خالد',ext:'٢٣٤٥',title:'موظف · إدارة تقنية المعلومات',dept:'إدارة تقنية المعلومات',female:false},
+
+ e3:{name:'منى الدوسري',first:'منى',ext:'١١٢٠',title:'موظفة · إدارة الموارد البشرية',dept:'إدارة الموارد البشرية',female:true},
+
+ e4:{name:'فيصل القرني',first:'فيصل',ext:'١٣١٠',title:'موظف · إدارة الشؤون القانونية',dept:'إدارة الشؤون القانونية',female:false},
+
+ e5:{name:'عبير الشهري',first:'عبير',ext:'١٤٠٥',title:'موظفة · إدارة التميز المؤسسي',dept:'إدارة التميز المؤسسي',female:true},
+
+ e6:{name:'سلطان العنزي',first:'سلطان',ext:'١٥٢٠',title:'موظف · الإدارة العامة للشؤون المحلية',dept:'الإدارة العامة للشؤون المحلية',female:false},
+
+ e7:{name:'ريان البقمي',first:'ريان',ext:'١٠٠٥',title:'موظف · مكتب وكيل الإمارة',dept:'مكتب وكيل الإمارة',female:false}
+
+};
+
+const profiles={
 
  reviewer:{name:'ريم القحطاني',first:'ريم',ext:'٢٣٤٦',title:'مراجع معرفي',female:true},
 
@@ -76,7 +124,7 @@ const profiles={
 
 };
 
-function cu(){return profiles[state.role]||profiles.employee}
+function cu(){if(state.role==='employee')return employees[state.employeeId||'e1'];return profiles[state.role]||employees.e1}
 
 const app=document.getElementById('app'),modal=document.getElementById('modal'),toast=document.getElementById('toast');
 
@@ -124,9 +172,9 @@ function crumb(text){return `<div class="crumb"><button class="crumb-home" oncli
 
 function pageHead(title,desc='',actions=''){return `<div class="page-head"><div><h1>${title}</h1>${desc?`<p>${desc}</p>`:''}</div>${actions?`<div class="actions">${actions}</div>`:''}</div>`}
 
-function login(){return `<section class="login-page"><div class="login-card"><div class="login-brand"><img class="logo-img login-logo" src="logo.png" alt=""><h1>بصمة معرفة</h1></div><div class="login-body"><div class="tabs"><button id="empTab" class="tab active" onclick="setLoginRole('employee')">موظف</button><button id="revTab" class="tab" onclick="setLoginRole('reviewer')">مراجع معرفي</button><button id="mgrTab" class="tab" onclick="setLoginRole('manager')">مدير الإدارة</button></div><div class="field"><label>الرقم الوظيفي</label><input class="input" value="10234" placeholder="أدخل الرقم الوظيفي"></div><div class="field"><label>كلمة المرور</label><input type="password" class="input" value="12345678" placeholder="أدخل كلمة المرور"></div><button class="btn btn-gold w100" onclick="doLogin()">تسجيل الدخول</button></div></div></section>`}
+function login(){return `<section class="login-page"><div class="login-card"><div class="login-brand"><img class="logo-img login-logo" src="logo.png" alt=""><h1>بصمة معرفة</h1></div><div class="login-body"><div class="tabs"><button id="empTab" class="tab active" onclick="setLoginRole('employee')">موظف</button><button id="revTab" class="tab" onclick="setLoginRole('reviewer')">مراجع معرفي</button><button id="mgrTab" class="tab" onclick="setLoginRole('manager')">مدير الإدارة</button></div><div id="empSelectWrap" class="field"><label>اختر الموظف (تجريبي)</label><select id="empSelect" class="input">${Object.entries(employees).map(([id,e])=>`<option value="${id}">${e.name} — ${e.dept}</option>`).join('')}</select></div><div class="field"><label>الرقم الوظيفي</label><input class="input" value="10234" placeholder="أدخل الرقم الوظيفي"></div><div class="field"><label>كلمة المرور</label><input type="password" class="input" value="12345678" placeholder="أدخل كلمة المرور"></div><button class="btn btn-gold w100" onclick="doLogin()">تسجيل الدخول</button></div></div></section>`}
 
-let loginRole='employee';function setLoginRole(r){loginRole=r;document.getElementById('empTab').classList.toggle('active',r==='employee');document.getElementById('revTab').classList.toggle('active',r==='reviewer');document.getElementById('mgrTab').classList.toggle('active',r==='manager')}function doLogin(){state.role=loginRole;go(loginRole==='reviewer'?'reviewer-home':'employee-home')}function logout(){state.role=null;loginRole='employee';go('login')}
+let loginRole='employee';function setLoginRole(r){loginRole=r;document.getElementById('empTab').classList.toggle('active',r==='employee');document.getElementById('revTab').classList.toggle('active',r==='reviewer');document.getElementById('mgrTab').classList.toggle('active',r==='manager');document.getElementById('empSelectWrap').classList.toggle('hidden',r!=='employee')}function doLogin(){state.role=loginRole;if(loginRole==='employee'){const sel=document.getElementById('empSelect');state.employeeId=sel?sel.value:'e1'}go(loginRole==='reviewer'?'reviewer-home':'employee-home')}function logout(){state.role=null;loginRole='employee';go('login')}
 
 function employeeHome(){
 
@@ -186,7 +234,7 @@ function knowledgeRow(k){return `<div class="card knowledge-row"><div class="fea
 
 function formatMonthYear(date){if(!date)return'';return new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{month:'long',year:'numeric'}).format(new Date(`${date.slice(0,7)}-01T12:00:00`))}
 
-function browse(){let pubs=state.knowledge.filter(k=>['published','archived'].includes(k.status)),months=[...new Set(pubs.map(k=>k.date.slice(0,7)))].sort().reverse();return shell(`${crumb('تصفح المعرفة')}${pageHead('تصفّح المعرفة','استعرض المعارف المؤسسية المعتمدة واطّلع على تفاصيلها.')}<div class="filters browse-filters"><input id="search" class="input" placeholder="ابحث بعنوان المعرفة أو كلمة مفتاحية" oninput="filterKnowledge()"><select id="dept" class="select" onchange="filterKnowledge()"><option>جميع الإدارات</option><option>إدارة تقنية المعلومات</option></select><select id="cat" class="select" onchange="filterKnowledge()"><option>جميع التصنيفات</option><option>حل</option><option>إجراء</option><option>تجربة</option><option>درس مستفاد</option><option>كود</option><option>مبادرة</option></select><select id="month" class="select" onchange="filterKnowledge()"><option value="">جميع التواريخ</option>${months.map(m=>`<option value="${m}">${formatMonthYear(m)}</option>`).join('')}</select></div><div id="knowledgeGrid" class="grid grid-2">${pubs.map(knowledgeCard).join('')}</div>`)}
+function browse(){let pubs=state.knowledge.filter(k=>['published','archived'].includes(k.status)),months=[...new Set(pubs.map(k=>k.date.slice(0,7)))].sort().reverse();return shell(`${crumb('تصفح المعرفة')}${pageHead('تصفّح المعرفة','استعرض المعارف المؤسسية المعتمدة واطّلع على تفاصيلها.')}<div class="filters browse-filters"><input id="search" class="input" placeholder="ابحث بعنوان المعرفة أو كلمة مفتاحية" oninput="filterKnowledge()"><select id="dept" class="select" onchange="filterKnowledge()"><option>جميع الإدارات</option>${[...new Set(pubs.map(k=>k.dept))].map(d=>`<option>${d}</option>`).join('')}</select><select id="cat" class="select" onchange="filterKnowledge()"><option>جميع التصنيفات</option><option>حل</option><option>إجراء</option><option>تجربة</option><option>درس مستفاد</option><option>كود</option><option>مبادرة</option></select><select id="month" class="select" onchange="filterKnowledge()"><option value="">جميع التواريخ</option>${months.map(m=>`<option value="${m}">${formatMonthYear(m)}</option>`).join('')}</select></div><div id="knowledgeGrid" class="grid grid-2">${pubs.map(knowledgeCard).join('')}</div>`)}
 
 function knowledgeCard(k){return `<article class="card k-card" data-title="${k.title} ${k.keywords}" data-cat="${k.category}" data-dept="${k.dept}" data-date="${k.date}"><div class="actions"><span class="tag">${k.category}</span>${k.status==='archived'?'<span class="status archived">مؤرشفة</span>':''}</div><h3>${k.title}</h3><div class="meta knowledge-card-meta"><span>صاحب المعرفة: ${k.showName?k.owner:'موظف'}</span><span>${k.dept}</span><span>تاريخ النشر: ${formatMonthYear(k.date)}</span><span>★ ${k.rating} من 5</span></div><button class="btn btn-gold" onclick="go('detail',${k.id})">عرض المعرفة ‹</button></article>`}
 
@@ -198,7 +246,26 @@ function benefit(id,yes){if(yes){let k=state.knowledge.find(x=>x.id===id);k.uses
 
 function ask(){return shell(`${crumb('اسأل خبيرًا')}${pageHead('اسأل خبيرًا','اكتب سؤالك بطريقتك، وسأبحث أولًا في المعارف واللوائح المعتمدة.')}<div class="card chat expert-chat"><div id="messages" class="messages"><div class="msg bot"><b>مرحبًا ${cu().first} 👋</b><br>اكتبي المشكلة التي تواجهك وسأبحث لك عن أقرب معرفة معتمدة.</div></div><form class="chat-form" onsubmit="askQuestion(event)"><input id="question" class="input" placeholder="اكتب مشكلتك هنا..." autocomplete="off"><button class="btn btn-primary">إرسال</button></form></div>`)}
 
-function knowledgeMatch(q){let normalized=q.replace(/[؟،,.]/g,' '),words=normalized.split(/\s+/).filter(w=>w.length>2),published=state.knowledge.filter(x=>x.status==='published');return published.map(k=>({k,score:words.filter(w=>(k.title+' '+k.keywords+' '+k.challenge).includes(w)).length})).sort((a,b)=>b.score-a.score)[0]}
+const ASK_SYNONYMS=[[/الولاده|الوضع بعد الولاده|اجازه الحمل/g,'اجازه امومه'],[/كلمه السر|الباسورد|الرمز السري|رمز الدخول/g,'كلمه المرور'],[/انصب|انزل|حمل|تنزيل|تنصيب/g,'تثبيت'],[/من البيت|من المنزل|بعيد عن المكتب/g,'عمل عن بعد'],[/ردوا علي|ما حد رد|تاخروا بالرد/g,'تاخر الرد'],[/انتقال|نقل بين الادارات|نقل وظيفي/g,'نقل داخلي']];
+
+const ASK_STOPWORDS=new Set(['من','عن','الى','إلى','هذا','هذه','التي','الذي','كيف','ماذا','متى','اين','وين','ليش','ليه','هل','ابغى','ابي','ابغي','ممكن','ياليت','لو','سمحت','سمحتوا','والله','يا','خبير','ياخبير','عندي','عندنا','وش','ايش','لازم','ابد','جدا','مشكلتي','مشكله','موظف']);
+
+function askDestem(w){if(w.length>3&&/^[وف]/.test(w))w=w.slice(1);if(w.length>3&&w.startsWith('ال'))w=w.slice(2);return w}
+
+function knowledgeMatch(q){
+ let n=regNorm(q);
+ ASK_SYNONYMS.forEach(([pat,rep])=>{n=n.replace(pat,rep)});
+ let words=[...new Set(n.split(/[\s،,؟?.]+/).map(askDestem).filter(w=>w.length>1&&!ASK_STOPWORDS.has(w)))];
+ if(!words.length)return null;
+ let published=state.knowledge.filter(x=>x.status==='published');
+ let scored=published.map(k=>{
+  let title=regNorm(k.title),kw=regNorm(k.keywords||''),body=regNorm(k.challenge+' '+k.handling+' '+k.lesson);
+  let score=words.reduce((s,w)=>s+(title.includes(w)?3:0)+(kw.includes(w)?2:0)+(body.includes(w)?1:0),0);
+  return {k,score};
+ }).sort((a,b)=>b.score-a.score);
+ let top=scored[0];
+ return top&&top.score>=3?top:null;
+}
 
 function expertMessages(k){let slot=`chat-detail-${k.id}-${Date.now()}`;return [
 
@@ -316,7 +383,7 @@ function updateIdentity(show){document.getElementById('displayName').value=show?
 
 function updateAudience(scope){document.getElementById('departmentChoices').classList.toggle('hidden',scope!=='specific')}
 
-function submitKnowledge(e){e.preventDefault();let scope=document.querySelector('[name=audience]:checked').value,targetDepartments=scope==='all'?['جميع الإدارات']:[...document.querySelectorAll('#departmentChoices input:checked')].map(x=>x.value);if(scope==='specific'&&!targetDepartments.length){notify('اختاري إدارة واحدة على الأقل.');return}let id=Math.max(...state.knowledge.map(k=>k.id))+1,sol=document.getElementById('k3').value.split(/\n|[١٢٣٤٥٦٧٨٩][.\-]/).map(x=>x.trim()).filter(Boolean);state.knowledge.push({id,title:document.getElementById('ktitle').value,owner:cu().name,showName:document.querySelector('[name=show]:checked').value==='yes',dept:'إدارة تقنية المعلومات',visibility:scope,targetDepartments,contact:cu().ext,challenge:document.getElementById('k1').value,handling:document.getElementById('k2').value,solution:sol.length?sol:[document.getElementById('k3').value],lesson:document.getElementById('k4').value,keywords:'',category:'غير مصنفة',status:'review',rating:0,uses:0,regulation:'سياسة استخدام الأجهزة والبرمجيات',date:new Date().toISOString().slice(0,10)});state.notifications.reviewer.unshift({title:'معرفة جديدة تحتاج إلى المراجعة',body:document.getElementById('ktitle').value,id});save();showModal('تم إرسال معرفتك للمراجعة','شكرًا لمساهمتك. أُرسلت معرفتك إلى المراجع المعرفي في إدارة تقنية المعلومات لمراجعتها وتصنيفها.',`<button class="btn btn-primary w100" onclick="closeModal();go('impact')">الانتقال إلى أثري المعرفي</button>`)}
+function submitKnowledge(e){e.preventDefault();let scope=document.querySelector('[name=audience]:checked').value,targetDepartments=scope==='all'?['جميع الإدارات']:[...document.querySelectorAll('#departmentChoices input:checked')].map(x=>x.value);if(scope==='specific'&&!targetDepartments.length){notify('اختاري إدارة واحدة على الأقل.');return}let id=Math.max(...state.knowledge.map(k=>k.id))+1,sol=document.getElementById('k3').value.split(/\n|[١٢٣٤٥٦٧٨٩][.\-]/).map(x=>x.trim()).filter(Boolean);state.knowledge.push({id,title:document.getElementById('ktitle').value,owner:cu().name,showName:document.querySelector('[name=show]:checked').value==='yes',dept:cu().dept,visibility:scope,targetDepartments,contact:cu().ext,challenge:document.getElementById('k1').value,handling:document.getElementById('k2').value,solution:sol.length?sol:[document.getElementById('k3').value],lesson:document.getElementById('k4').value,keywords:'',category:'غير مصنفة',status:'review',rating:0,uses:0,regulation:'سياسة استخدام الأجهزة والبرمجيات',date:new Date().toISOString().slice(0,10)});state.notifications.reviewer.unshift({title:'معرفة جديدة تحتاج إلى المراجعة',body:document.getElementById('ktitle').value,id});save();showModal('تم إرسال معرفتك للمراجعة',`شكرًا لمساهمتك. أُرسلت معرفتك إلى المراجع المعرفي في ${cu().dept} لمراجعتها وتصنيفها.`,`<button class="btn btn-primary w100" onclick="closeModal();go('impact')">الانتقال إلى أثري المعرفي</button>`)}
 
 function svg(name){
 
