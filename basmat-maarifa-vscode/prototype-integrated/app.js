@@ -76,27 +76,7 @@ const regulationsList=[
 
 function regNorm(t){return String(t).replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').toLowerCase()}
 
-function regulationResultsHtml(q){
-
- const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]),
-
-  words=regNorm(q).split(/[\s،,؟?.]+/).filter(w=>w.length>1),
-
-  pubs=state.knowledge.filter(k=>k.status==='published'),
-
-  rows=regulationsList.map(r=>{const hay=regNorm(r.name+' '+r.desc+' '+r.keywords);return{r,linked:pubs.filter(k=>k.regulation===r.name).length,score:words.filter(w=>hay.includes(w)).length}});
-
- let list=(words.length?rows.filter(x=>x.score>0):rows).sort((a,b)=>b.score-a.score||b.linked-a.linked).slice(0,5);
-
- if(!list.length)return '<div class="empty">ما لقيت لوائح مرتبطة ببحثك، جرّب كلمات ثانية.</div>';
-
- return list.map((x,i)=>`<div class="card knowledge-row reg-row"><div class="reg-rank">${ar(i+1)}</div><div class="grow"><h3>${x.r.name}</h3><p class="reg-desc">${x.r.desc}</p><div class="meta"><span class="tag">${x.r.type}</span><span>${ar(x.linked)} معارف مرتبطة</span></div></div><a class="btn btn-gold" href="${x.r.url}" target="_blank" rel="noopener">فتح اللائحة ↗</a></div>`).join('')
-
-}
-
-function renderRegulationResults(){const v=document.getElementById('regSearch').value;document.getElementById('regResults').innerHTML=regulationResultsHtml(v);document.getElementById('regTitle').textContent=v.trim()?'أقرب اللوائح لبحثك':'الأكثر ارتباطًا'}
-
-function regulationsPage(){return shell(`${crumb('اللوائح والأنظمة')}${pageHead('اللوائح والأنظمة','ابحث في اللوائح والأنظمة المعتمدة، وستظهر لك أكثر خمس لوائح ارتباطًا ببحثك.')}<div class="card"><input id="regSearch" class="input" placeholder="ابحث باسم اللائحة أو بمشكلتك (مثال: كلمة المرور، طابعة، VPN)" oninput="renderRegulationResults()" autocomplete="off"><div class="section-title" style="margin-top:24px"><h2 id="regTitle">الأكثر ارتباطًا</h2></div><div id="regResults" class="list">${regulationResultsHtml('')}</div></div>`)}
+function regulationsPage(){return shell(`${crumb('ابحث في اللوائح والأنظمة')}${pageHead('ابحث في اللوائح والأنظمة','ابحث بموضوع أو كلمة أو اسم مرجع، سواء ارتبط بمعرفة في المنصة أو لم يُستخدم من قبل.')}${RegulationSearch.page()}`)}
 
 const employees={
 
@@ -180,7 +160,7 @@ function employeeHome(){
 
  let published=state.knowledge.filter(k=>k.status==='published').slice(0,3);
 
- let regulationPrompt=cu().female?'ابحثي في اللوائح والأنظمة المرتبطة بعملك، وستظهر لك أهم خمس لوائح.':'ابحث في اللوائح والأنظمة المرتبطة بعملك، وستظهر لك أهم خمس لوائح.';
+ let regulationPrompt='ابحث بموضوع أو كلمة في جميع المراجع المتاحة، واعرض النص والمصدر الرسمي.';
 
  let regulationAction=cu().female?'ابحثي الآن':'ابحث الآن';
 
@@ -188,7 +168,7 @@ function employeeHome(){
 
  return shell(`${pageHead(cu().female?'مرحبًا بكِ في بصمة معرفة':'مرحبًا بك في بصمة معرفة',cu().female?'اختاري الخدمة التي تحتاجينها وابدئي مباشرة.':'اختر الخدمة التي تحتاجها وابدأ مباشرة.')}
 
- <div class="reg-banner" onclick="go('regulations-page')"><div class="reg-banner-icon">⚖</div><div class="reg-banner-text"><h3>اللوائح والأنظمة</h3><p>${regulationPrompt}</p></div><span class="reg-banner-go">${regulationAction} ‹</span></div>
+ <div class="reg-banner" onclick="go('regulations-page')"><div class="reg-banner-icon">⚖</div><div class="reg-banner-text"><h3>ابحث في اللوائح والأنظمة</h3><p>${regulationPrompt}</p></div><span class="reg-banner-go">${regulationAction} ‹</span></div>
 
  <div class="grid grid-4 home-features">
 
