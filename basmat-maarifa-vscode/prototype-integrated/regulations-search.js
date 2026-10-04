@@ -24,7 +24,7 @@ const RegulationSearch = (() => {
   };
   const index = data.documents.flatMap(doc => doc.sections.map(section => ({doc,section,
     body:norm(section.text),meta:norm(`${doc.name} ${doc.issuer} ${section.label}`)})));
-  let current = {query:'',domain:'',type:'',results:[],limit:10};
+  let current = {query:'',domain:'',type:'',results:[],limit:5};
   function search(query,domain='',type='') {
     const terms = tokens(query);
     if (!terms.length) return [];
@@ -50,19 +50,19 @@ const RegulationSearch = (() => {
     return docs.length?docs.map(d=>`<article class="rs-result"><div class="rs-tags"><span class="tag">${esc(d.type)}</span><span class="rs-domain">${esc(d.domain)}</span></div><h3>${esc(d.name)}</h3><p class="meta">${esc(d.issuer)} · ${esc(d.version)}</p><p>${esc(d.coverage)}</p><a class="btn btn-outline" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">فتح المصدر الرسمي ↗</a></article>`).join(''):'<div class="empty">لا توجد مصادر مضافة ضمن هذا الفلتر.</div>';
   }
   function page() {
-    current={query:'',domain:'',type:'',results:[],limit:10};
+    current={query:'',domain:'',type:'',results:[],limit:5};
     return `<section class="card rs-search-panel"><form onsubmit="RegulationSearch.run(event)" class="rs-form"><label for="regSearch">ما الموضوع الذي تبحث عنه؟</label><div class="rs-search-line"><input id="regSearch" class="input" maxlength="400" placeholder="ابحث بموضوع، كلمة، أو اسم لائحة أو نظام" autocomplete="off"><button class="btn btn-primary" type="submit">بحث</button></div><div class="rs-filters"><div><label for="regDomain">المجال</label><select id="regDomain" class="input" onchange="RegulationSearch.run()"><option value="">جميع المجالات</option>${[...new Set(data.documents.map(d=>d.domain))].map(s=>`<option>${esc(s)}</option>`).join('')}</select></div><div><label for="regType">نوع المرجع</label><select id="regType" class="input" onchange="RegulationSearch.run()"><option value="">جميع الأنواع</option>${[...new Set(data.documents.map(d=>d.type))].map(s=>`<option>${esc(s)}</option>`).join('')}</select></div></div></form></section><section aria-label="نتائج البحث"><div class="section-title rs-heading"><h2 id="regTitle">المراجع المتاحة</h2><span id="regCount" class="meta">${data.documents.length} مصادر</span></div><div id="regResults" class="rs-results" aria-live="polite">${catalog()}</div></section>`;
   }
   function run(event) {
     if(event)event.preventDefault();
-    current={query:document.getElementById('regSearch').value.trim(),domain:document.getElementById('regDomain').value,type:document.getElementById('regType').value,limit:10,results:[]};
+    current={query:document.getElementById('regSearch').value.trim(),domain:document.getElementById('regDomain').value,type:document.getElementById('regType').value,limit:5,results:[]};
     current.results=search(current.query,current.domain,current.type);paint();
   }
   function paint() {
     const {query,results,limit,domain,type}=current;
-    document.getElementById('regTitle').textContent=query?`نتائج البحث عن «${query}»`:'المراجع المتاحة';
-    document.getElementById('regCount').textContent=query?`${results.length} مقطع مطابق في ${new Set(results.map(r=>r.doc.id)).size} مصادر`:'';
-    document.getElementById('regResults').innerHTML=!query?catalog(domain,type):!tokens(query).length?'<div class="empty">اكتب موضوعًا محددًا، مثل الترقيات أو حماية البريد الإلكتروني.</div>':!results.length?'<div class="empty"><h3>لم نجد نصًا مناسبًا في المصادر المتاحة</h3><p>جرّب كلمات أخرى أو وسّع الفلاتر. عدم ظهور نتيجة لا يعني عدم وجود حكم نظامي.</p></div>':results.slice(0,limit).map((r,i)=>`<article class="rs-result"><div class="rs-tags"><span class="tag">${esc(r.doc.type)}</span><span class="rs-domain">${esc(r.doc.domain)}</span></div><h3>${esc(r.doc.name)}</h3><p class="meta">${esc(r.doc.issuer)}</p><div class="rs-reference"><b>${esc(r.section.label)}</b><span>صفحة PDF ${r.section.page}</span></div><blockquote dir="auto">${esc(excerpt(r.section.text,query))}</blockquote><div class="rs-actions"><button class="btn btn-soft" onclick="RegulationSearch.open(${i})">عرض النص المسترجع</button><a class="btn btn-outline" href="${esc(sourceUrl(r))}" target="_blank" rel="noopener noreferrer">فتح المصدر الرسمي ↗</a></div></article>`).join('')+(results.length>limit?'<button class="btn btn-soft rs-more" onclick="RegulationSearch.more()">عرض المزيد من النتائج</button>':'');
+    document.getElementById('regTitle').textContent=query?`أقرب النتائج لموضوع «${query}»`:'المراجع المتاحة';
+    document.getElementById('regCount').textContent=query?`${Math.min(5,results.length)} نتائج مرتبة حسب الارتباط`:'';
+    document.getElementById('regResults').innerHTML=!query?catalog(domain,type):!tokens(query).length?'<div class="empty">اكتب موضوعًا محددًا، مثل الترقيات أو حماية البريد الإلكتروني.</div>':!results.length?'<div class="empty"><h3>لم نجد نصًا مناسبًا في المصادر المتاحة</h3><p>جرّب كلمات أخرى أو وسّع الفلاتر. عدم ظهور نتيجة لا يعني عدم وجود حكم نظامي.</p></div>':results.slice(0,5).map((r,i)=>`<article class="rs-result"><div class="rs-tags"><span class="tag">${esc(r.doc.type)}</span><span class="rs-domain">${esc(r.doc.domain)}</span></div><h3>${esc(r.doc.name)}</h3><p class="meta">${esc(r.doc.issuer)}</p><div class="rs-reference"><b>${esc(r.section.label)}</b><span>صفحة PDF ${r.section.page}</span></div><blockquote dir="auto">${esc(excerpt(r.section.text,query))}</blockquote><div class="rs-actions"><button class="btn btn-soft" onclick="RegulationSearch.open(${i})">عرض النص المسترجع</button><a class="btn btn-outline" href="${esc(sourceUrl(r))}" target="_blank" rel="noopener noreferrer">فتح المصدر الرسمي ↗</a></div></article>`).join('');
   }
   function open(i) {
     const r=current.results[i]; if(!r)return;
@@ -72,6 +72,5 @@ const RegulationSearch = (() => {
     el.addEventListener('close',()=>el.remove());document.body.append(el);el.showModal();
   }
   function example(q) {document.getElementById('regSearch').value=q;run();}
-  function more() {current.limit+=10;paint();}
-  return {page,run,search,example,more,open,norm};
+  return {page,run,search,example,open,norm};
 })();

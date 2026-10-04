@@ -136,9 +136,30 @@ function statusText(s){return{published:'منشورة',review:'قيد المرا
 
 function icon(i){return `<span aria-hidden="true">${i}</span>`}
 
-function header(){let ns=state.notifications[state.role]||[],u=cu();return `<header class="header"><div class="brand"><img class="logo-img" src="logo.png" alt="بصمة معرفة"><div class="brand-text"><span>بصمة معرفة</span><small>بوابة إدارة الأثر المعرفي</small></div></div><div class="header-side"><button class="bell" onclick="toggleNotifications()" aria-label="الإشعارات">${svg('bell')}${ns.length?`<i class="badge">${ns.length}</i>`:''}</button><div class="user-pill"><div class="avatar">${svg('user')}</div><div class="user-info"><b>${u.display||u.name}</b><small>${u.title}</small></div></div><button class="logout" onclick="logout()">تسجيل الخروج ${svg('logout')}</button></div></header>${state.notifOpen?notificationsPanel(ns):''}`}
+function header(){let ns=visibleNotifications(),u=cu();return `<header class="header"><div class="brand"><img class="logo-img" src="logo.png" alt="بصمة معرفة"><div class="brand-text"><span>بصمة معرفة</span><small>بوابة إدارة الأثر المعرفي</small></div></div><div class="header-side"><button class="bell" onclick="toggleNotifications()" aria-label="الإشعارات">${svg('bell')}${ns.length?`<i class="badge">${ns.length}</i>`:''}</button><div class="user-pill"><div class="avatar">${svg('user')}</div><div class="user-info"><b>${u.display||u.name}</b><small>${u.title}</small></div></div><button class="logout" onclick="logout()">تسجيل الخروج ${svg('logout')}</button></div></header>${state.notifOpen?notificationsPanel(ns):''}`}
 
-function notificationsPanel(ns){return `<aside class="notif-panel">${ns.length?ns.map((n,i)=>`<div class="notif" onclick="openNotification(${i})"><strong>${n.title}</strong><small>${n.body}</small></div>`).join(''):'<div class="empty">لا توجد إشعارات جديدة</div>'}</aside>`}
+function notificationsPanel(ns){return `<aside class="notif-panel knowledge-notifications" aria-label="الإشعارات"><div class="notification-panel-head"><h2>الإشعارات</h2><button class="close" onclick="toggleNotifications()" aria-label="إغلاق الإشعارات">×</button></div>${ns.length?ns.map(({n,index})=>notificationCard(n,index)).join(''):'<div class="empty">لا توجد إشعارات جديدة</div>'}</aside>`}
+
+function escapeKnowledge(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function visibleNotifications(){return (state.notifications[state.role]||[]).map((n,index)=>({n,index})).filter(({n})=>{if(state.role!=='employee')return true;const k=state.knowledge.find(k=>k.id===n.id);return n.recipientId?n.recipientId===state.employeeId:!k||k.owner===cu().name})}
+function addKnowledgeNotification(role,k,type){
+ const titles={submitted:'معرفة جديدة تحتاج إلى المراجعة',resubmitted:'تمت إعادة إرسال المعرفة بعد التعديل',returned:'أُعيدت معرفتك للتعديل',published:'تم اعتماد ونشر معرفتك',rejected:'تم رفض معرفتك'};
+ state.notifications[role]=state.notifications[role]||[];
+ state.notifications[role].unshift({title:titles[type],body:k.title,id:k.id,type,owner:k.owner,recipientId:role==='employee'?k.ownerId:undefined,reason:type==='returned'?k.returnReason:type==='rejected'?k.rejectReason:undefined,createdAt:new Date().toISOString()});
+}
+function notificationCard(n,index){
+ const k=state.knowledge.find(k=>k.id===n.id),type=n.type||(state.role==='reviewer'?(/تعديل/.test(n.title)?'resubmitted':'submitted'):/رفض/.test(n.title)?'rejected':/تعديل/.test(n.title)?'returned':'published');
+ const title=escapeKnowledge(n.body||k?.title||''),owner=escapeKnowledge(n.owner||k?.owner||'الموظف'),reason=escapeKnowledge(n.reason||(type==='returned'?k?.returnReason:k?.rejectReason)||'');
+ const close=`<button class="close notification-dismiss" onclick="dismissNotification(${index})" aria-label="إزالة الإشعار">×</button>`;
+ if(type==='submitted'||type==='resubmitted')return `<article class="knowledge-notification reviewer-notification"><div class="notification-top"><span class="notification-chip">${type==='resubmitted'?'تحديث جديد':'معرفة جديدة'}</span><span class="notification-time">${n.createdAt?new Intl.DateTimeFormat('ar-SA',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}).format(new Date(n.createdAt)):'جديد'}</span>${close}</div><h3>${type==='resubmitted'?'تمت إعادة إرسال المعرفة بعد التعديل':'وصلت معرفة جديدة للمراجعة'}</h3><p>${type==='resubmitted'?'أعاد':'أرسل'} <b>${owner}</b> ${type==='resubmitted'?'إرسال ':''}معرفة <b>«${title}»</b>${type==='resubmitted'?' بعد تنفيذ التعديلات المطلوبة':''}، وهي جاهزة للمراجعة.</p><button class="btn btn-primary w100" onclick="openNotification(${index})">مراجعة المعرفة ${svg('book')}</button></article>`;
+ const returned=type==='returned',rejected=type==='rejected';
+ return `<article class="knowledge-notification ${returned?'notification-warning':rejected?'notification-rejected':'notification-published'}">${close}<div class="notification-content"><div class="notification-symbol ${returned?'warning':rejected?'danger':'success'}">${returned?'⚠':rejected?'×':'✓'}</div><div class="notification-copy"><div class="notification-title"><h3>${returned?'أُعيدت معرفتك للتعديل':rejected?'تم رفض معرفتك':'تم اعتماد ونشر معرفتك'}</h3>${returned?'<span class="notification-chip warning">تحتاج إلى إجراء</span>':''}</div><h4>${title}</h4><p>${returned?'أعاد المراجع المعرفي معرفتك لاستكمال بعض التعديلات قبل اعتمادها. يمكنك الاطلاع على ملاحظته وتعديل المعرفة ثم إعادة إرسالها للمراجعة.':rejected?'لم تُعتمد معرفتك للنشر. يمكنك الاطلاع على سبب الرفض أدناه.':'تم اعتماد معرفتك ونشرها بنجاح، وأصبحت متاحة للموظفين في منصة بصمة معرفة.'}</p>${reason&&(returned||rejected)?`<div class="notification-reason"><b>${returned?'ملاحظة المراجع':'سبب الرفض'}:</b><br>${reason}</div>`:''}<button class="${returned?'btn btn-primary':'notification-link'}" onclick="openNotification(${index})">${returned?'تعديل المعرفة':rejected?'عرض تفاصيل المعرفة':'عرض المعرفة'} <span aria-hidden="true">‹</span></button></div></div></article>`;
+}
+function dismissNotification(index){state.notifications[state.role].splice(index,1);save();render()}
+function showKnowledgeSuccess({title,message,note='',badge='',reviewer=false,danger=false}){
+ modal.innerHTML=`<section class="modal knowledge-success ${reviewer?'reviewer-success':''}" role="dialog" aria-modal="true" aria-labelledby="knowledge-success-title"><div class="knowledge-success-icon ${danger?'danger':''}">${danger?'×':'✓'}</div>${badge?`<span class="notification-chip ${danger?'danger':'warning'}">${escapeKnowledge(badge)}</span>`:''}<h2 id="knowledge-success-title">${escapeKnowledge(title)}</h2><p>${escapeKnowledge(message)}</p>${note?`<div class="knowledge-success-note">${escapeKnowledge(note)}</div>`:''}<div class="knowledge-success-actions">${reviewer?`<button class="btn btn-primary w100" onclick="closeModal();go('reviewer-home')">العودة إلى قائمة المعارف</button>`:`<button class="btn btn-primary w100" onclick="closeModal();go('impact')">الانتقال إلى أثري المعرفي</button><button class="btn btn-outline w100" onclick="closeModal();go('employee-home')">العودة إلى الرئيسية</button>`}</div></section>`;
+ modal.classList.remove('hidden');
+}
 
 function pageBackButton(){
  const mainPages=['login','employee-home','reviewer-home','manager-home'];
@@ -220,11 +241,11 @@ function knowledgeCard(k){return `<article class="card k-card" data-title="${k.t
 
 function filterKnowledge(){let q=document.getElementById('search').value.trim(),dept=document.getElementById('dept').value,cat=document.getElementById('cat').value,month=document.getElementById('month').value;document.querySelectorAll('#knowledgeGrid article').forEach(c=>{let ok=(!q||c.dataset.title.includes(q))&&(dept==='جميع الإدارات'||c.dataset.dept===dept)&&(cat==='جميع التصنيفات'||c.dataset.cat===cat)&&(!month||c.dataset.date.startsWith(month));c.classList.toggle('hidden',!ok)})}
 
-function detail(){let k=state.knowledge.find(x=>x.id===state.current)||state.knowledge[0];return shell(`${crumb('تفاصيل المعرفة')}<button class="btn btn-soft" onclick="history.back();go('browse')">العودة إلى النتائج</button><div class="card" style="margin-top:18px"><span class="tag">${k.category}</span><h1 class="detail-title">${k.title}</h1><div class="detail-meta meta"><span>صاحب المعرفة: ${k.showName?k.owner:'موظف'}</span><span>الإدارة: ${k.dept}</span><span>تاريخ النشر: ${k.date}</span><span>التقييم: ★ ${k.rating}</span><span>مصدر المعرفة: <a href="${regulations[k.regulation]}" target="_blank">${k.regulation} ↗</a></span></div><section class="block"><h2>الموقف أو التحدي</h2><p>${k.challenge}</p></section><section class="block"><h2>كيف تم التعامل معه؟</h2><p>${k.handling}</p></section><section class="block"><h2>الحل الذي نجح</h2><div class="steps">${k.solution.map(s=>`<div class="step">${s}</div>`).join('')}</div></section><section class="block"><h2>الدرس المستفاد</h2><p>${k.lesson}</p></section><div class="benefit"><h3>هل أفادتك هذه المعرفة؟</h3><div class="actions"><button class="btn btn-primary" onclick="benefit(${k.id},true)">نعم، استفدت</button><button class="btn btn-outline" onclick="benefit(${k.id},false)">لا، لم أستفد</button></div></div></div>`)}
+function detail(){let k=state.knowledge.find(x=>x.id===state.current)||state.knowledge[0];return shell(`${crumb('تفاصيل المعرفة')}<button class="btn btn-soft" onclick="goBack()">العودة إلى النتائج</button><div class="card" style="margin-top:18px"><span class="tag">${k.category}</span><h1 class="detail-title">${k.title}</h1><div class="detail-meta meta"><span>صاحب المعرفة: ${k.showName?k.owner:'موظف'}</span><span>الإدارة: ${k.dept}</span><span>تاريخ النشر: ${k.date}</span><span>التقييم: ★ ${k.rating}</span><span>مصدر المعرفة: <a href="${regulations[k.regulation]}" target="_blank">${k.regulation} ↗</a></span></div>${k.status!=='published'?`<p class="notice"><b>الحالة:</b> ${statusText(k.status)}${k.rejectReason||k.returnReason?`<br><b>${k.status==='rejected'?'سبب الرفض':'ملاحظة المراجع'}:</b> ${escapeKnowledge(k.rejectReason||k.returnReason)}`:''}</p>`:''}<section class="block"><h2>الموقف أو التحدي</h2><p>${k.challenge}</p></section><section class="block"><h2>كيف تم التعامل معه؟</h2><p>${k.handling}</p></section><section class="block"><h2>الحل الذي نجح</h2><div class="steps">${k.solution.map(s=>`<div class="step">${s}</div>`).join('')}</div></section><section class="block"><h2>الدرس المستفاد</h2><p>${k.lesson}</p></section></div>`)}
 
 function benefit(id,yes){if(yes){let k=state.knowledge.find(x=>x.id===id);k.uses++;state.benefits++;save();notify('شكرًا لك، أُضيفت الاستفادة إلى الأثر المعرفي لصاحب المعرفة.')}else notify('شكرًا لملاحظتك، سنستخدمها لتحسين المعرفة.')}
 
-function ask(){return shell(`${crumb('اسأل خبيرًا')}${pageHead('اسأل خبيرًا','اكتب سؤالك بطريقتك، وسأبحث أولًا في المعارف واللوائح المعتمدة.')}<div class="card chat expert-chat"><div id="messages" class="messages"><div class="msg bot"><b>مرحبًا ${cu().first} 👋</b><br>اكتبي المشكلة التي تواجهك وسأبحث لك عن أقرب معرفة معتمدة.</div></div><form class="chat-form" onsubmit="askQuestion(event)"><input id="question" class="input" placeholder="اكتب مشكلتك هنا..." autocomplete="off"><button class="btn btn-primary">إرسال</button></form></div>`)}
+function ask(){chatAwaitingAnotherQuestion=false;return shell(`${crumb('اسأل خبيرًا')}${pageHead('اسأل خبيرًا','اكتب سؤالك بطريقتك، وسأبحث أولًا في المعارف واللوائح المعتمدة.')}<div class="card chat expert-chat"><div id="messages" class="messages"><div class="msg bot"><b>مرحبًا ${cu().first} 👋</b><br>اكتبي المشكلة التي تواجهك وسأبحث لك عن أقرب معرفة معتمدة.</div></div><form class="chat-form" onsubmit="askQuestion(event)"><input id="question" class="input" placeholder="اكتب مشكلتك هنا..." autocomplete="off"><button class="btn btn-primary">إرسال</button></form></div>`)}
 
 const ASK_SYNONYMS=[[/الولاده|الوضع بعد الولاده|اجازه الحمل/g,'اجازه امومه'],[/كلمه السر|الباسورد|الرمز السري|رمز الدخول/g,'كلمه المرور'],[/انصب|انزل|حمل|تنزيل|تنصيب/g,'تثبيت'],[/من البيت|من المنزل|بعيد عن المكتب/g,'عمل عن بعد'],[/ردوا علي|ما حد رد|تاخروا بالرد/g,'تاخر الرد'],[/انتقال|نقل بين الادارات|نقل وظيفي/g,'نقل داخلي']];
 
@@ -261,11 +282,22 @@ function expertMessages(k){let slot=`chat-detail-${k.id}-${Date.now()}`;return [
 
 function appendExpertMessages(k){let box=document.getElementById('messages'),items=expertMessages(k);items.forEach((html,i)=>setTimeout(()=>{box.insertAdjacentHTML('beforeend',html);box.scrollTop=box.scrollHeight},350+i*430))}
 
+let chatAwaitingAnotherQuestion=false;
+function conversationClosing(q,awaiting=chatAwaitingAnotherQuestion){
+ const text=regNorm(q).replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
+ const thanks='(?:شكرا(?: لك| لكِ| لكم| جزيلا| كثيرا)?|شكرًا|مشكور(?:ه|ين)?|يعطيك العافيه|الله يعافيك|تسلم(?:ين)?|جزاك الله خير(?:ا)?)';
+ const ending='(?:خلاص|بس كذا|هذا كل شي|هذا كل شيء|انتهينا|مع السلامه|باي|ما عندي(?: اي)? (?:استفسار|سؤال)(?: ثاني| اخر| آخر)?|ماعندي(?: اي)? (?:استفسار|سؤال)(?: ثاني| اخر| آخر)?|ما عندي شي ثاني|ماعندي شي ثاني|لا يوجد(?: لدي)? (?:استفسار|سؤال)(?: اخر| آخر)?|لا احتاج(?: شيئا| شيء| شي)?(?: اخر| آخر| ثاني)?|لا(?: شكرا(?: لك)?)?|لا شكرا لك|لا خلاص)';
+ const phrase=new RegExp(`^(?:${thanks}|${ending})(?: (?:${thanks}|${ending}))*(?: يا خبير)?$`);
+ if(!phrase.test(text))return null;
+ if(/^(لا|لا شكرا|لا شكرا لك)$/.test(text)&&!awaiting&&text==='لا')return null;
+ return 'على الرحب والسعة! إذا احتجت مساعدة لاحقًا، اكتب استفسارك هنا. يومك سعيد.';
+}
+
 function isGreeting(q){let text=q.trim().replace(/[!؟،,.]/g,' ').replace(/\s+/g,' ');return /^(السلام عليكم( ورحمة الله( وبركاته)?)?|سلام|مرحبا|مرحباً|اهلا|أهلا|هلا|صباح الخير|مساء الخير)( يا خبير| جميعا| جميعاً)?$/.test(text)}
 
 function noMatchResponse(){let slot=`no-match-${Date.now()}`;return `<div class="msg bot"><b>لم أجد معرفة مطابقة لمشكلتك.</b><br>يمكنك التواصل مع المختص للحصول على المساعدة.</div><div class="chat-options no-match-options"><div id="${slot}" class="chat-detail-slot"></div><div class="answer-actions"><button onclick="showNoMatchContact('${slot}',this)">التواصل مع المختص</button></div><div class="chat-rating"><span>قيّمي فائدة الإجابة:</span><button onclick="rateChat(this,1)">☆</button><button onclick="rateChat(this,2)">☆</button><button onclick="rateChat(this,3)">☆</button><button onclick="rateChat(this,4)">☆</button><button onclick="rateChat(this,5)">☆</button></div></div>`}
 
-function askQuestion(e){e.preventDefault();let inp=document.getElementById('question'),q=inp.value.trim();if(!q)return;let box=document.getElementById('messages');box.insertAdjacentHTML('beforeend',`<div class="msg user">${q}</div>`);inp.value='';box.scrollTop=box.scrollHeight;if(isGreeting(q)){setTimeout(()=>{box.insertAdjacentHTML('beforeend',`<div class="msg bot"><b>وعليكم السلام، أهلًا وسهلًا بكِ 👋</b><br>كيف أقدر أساعدك اليوم؟ اكتبي مشكلتك وسأبحث لكِ في المعارف المعتمدة.</div>`);box.scrollTop=box.scrollHeight},300);return}let result=knowledgeMatch(q);if(result&&result.score){result.k.chatViews=(result.k.chatViews||0)+1;logChat(q,true);appendExpertMessages(result.k)}else{logChat(q,false);setTimeout(()=>{box.insertAdjacentHTML('beforeend',noMatchResponse());box.scrollTop=box.scrollHeight},350)}}
+function askQuestion(e){e.preventDefault();let inp=document.getElementById('question'),q=inp.value.trim();if(!q)return;let box=document.getElementById('messages');box.insertAdjacentHTML('beforeend',`<div class="msg user">${q}</div>`);inp.value='';box.scrollTop=box.scrollHeight;const closing=conversationClosing(q);chatAwaitingAnotherQuestion=false;if(closing){setTimeout(()=>addChatMessage(closing),300);return}if(isGreeting(q)){setTimeout(()=>{box.insertAdjacentHTML('beforeend',`<div class="msg bot"><b>وعليكم السلام، أهلًا وسهلًا بكِ 👋</b><br>كيف أقدر أساعدك اليوم؟ اكتبي مشكلتك وسأبحث لكِ في المعارف المعتمدة.</div>`);box.scrollTop=box.scrollHeight},300);return}let result=knowledgeMatch(q);if(result&&result.score){result.k.chatViews=(result.k.chatViews||0)+1;logChat(q,true);appendExpertMessages(result.k)}else{logChat(q,false);setTimeout(()=>{box.insertAdjacentHTML('beforeend',noMatchResponse());box.scrollTop=box.scrollHeight},350)}}
 
 function addChatMessage(html,type='bot'){let box=document.getElementById('messages');box.insertAdjacentHTML('beforeend',`<div class="msg ${type}">${html}</div>`);box.scrollTop=box.scrollHeight}
 
@@ -285,7 +317,15 @@ function chatThank(btn,id){btn.closest('.conversation-actions').innerHTML='<stro
 
 function chatNotHelpful(btn,id){btn.closest('.conversation-actions').innerHTML='<strong>حسنًا، اكتبي تفاصيل أكثر عن مشكلتك.</strong>';addChatMessage('وضّحي متى بدأت المشكلة وما الرسالة التي تظهر لك، وسأبحث مرة أخرى.')}
 
-function rateChat(btn,n){let row=btn.closest('.chat-rating'),stars=[...row.querySelectorAll('button')];stars.forEach((s,i)=>{s.textContent=i<n?'★':'☆';s.classList.toggle('rated',i<n)});notify('شكرًا، تم حفظ تقييمك.')}
+function rateChat(btn,n){
+ const row=btn.closest('.chat-rating');if(!row||row.dataset.submitted==='true')return;
+ row.dataset.submitted='true';
+ [...row.querySelectorAll('button')].forEach((star,i)=>{star.textContent=i<n?'★':'☆';star.classList.toggle('rated',i<n);star.disabled=true;star.setAttribute('aria-label',`${i+1} من 5 نجوم`)});
+ row.querySelector('span').textContent=`تقييمك: ${n} من 5 نجوم`;
+ chatAwaitingAnotherQuestion=true;
+ addChatMessage('شكرًا لتقييمك. هل لديك استفسار آخر أقدر أساعدك فيه؟');
+ document.getElementById('question').focus();
+}
 
 function minuteBrowseContent(){let vids=state.knowledge.filter(k=>k.status==='published').slice(0,6);return `<p class="minute-intro">محتوى معرفي مختصر للاستماع والمشاهدة، ويمكنك مشاركة دقيقتك المعرفية وإرسالها للمراجعة.</p><div class="grid grid-3">${vids.map(k=>`<div class="card"><div class="video-thumb"><div class="video-art"></div><button class="play" onclick="go('video',${k.id})">▶</button></div><h3>${k.title}</h3><div class="meta">صاحب المعرفة: ${k.showName?k.owner:'موظف'}</div><button class="btn btn-gold w100" style="margin-top:18px" onclick="go('video',${k.id})">مشاهدة الفيديو ‹</button></div>`).join('')}</div>`}
 
@@ -363,7 +403,7 @@ function updateIdentity(show){document.getElementById('displayName').value=show?
 
 function updateAudience(scope){document.getElementById('departmentChoices').classList.toggle('hidden',scope!=='specific')}
 
-function submitKnowledge(e){e.preventDefault();let scope=document.querySelector('[name=audience]:checked').value,targetDepartments=scope==='all'?['جميع الإدارات']:[...document.querySelectorAll('#departmentChoices input:checked')].map(x=>x.value);if(scope==='specific'&&!targetDepartments.length){notify('اختاري إدارة واحدة على الأقل.');return}let id=Math.max(...state.knowledge.map(k=>k.id))+1,sol=document.getElementById('k3').value.split(/\n|[١٢٣٤٥٦٧٨٩][.\-]/).map(x=>x.trim()).filter(Boolean);state.knowledge.push({id,title:document.getElementById('ktitle').value,owner:cu().name,showName:document.querySelector('[name=show]:checked').value==='yes',dept:cu().dept,visibility:scope,targetDepartments,contact:cu().ext,challenge:document.getElementById('k1').value,handling:document.getElementById('k2').value,solution:sol.length?sol:[document.getElementById('k3').value],lesson:document.getElementById('k4').value,keywords:'',category:'غير مصنفة',status:'review',rating:0,uses:0,regulation:'سياسة استخدام الأجهزة والبرمجيات',date:new Date().toISOString().slice(0,10)});state.notifications.reviewer.unshift({title:'معرفة جديدة تحتاج إلى المراجعة',body:document.getElementById('ktitle').value,id});save();showModal('تم إرسال معرفتك للمراجعة',`شكرًا لمساهمتك. أُرسلت معرفتك إلى المراجع المعرفي في ${cu().dept} لمراجعتها وتصنيفها.`,`<button class="btn btn-primary w100" onclick="closeModal();go('impact')">الانتقال إلى أثري المعرفي</button>`)}
+function submitKnowledge(e){e.preventDefault();let scope=document.querySelector('[name=audience]:checked').value,targetDepartments=scope==='all'?['جميع الإدارات']:[...document.querySelectorAll('#departmentChoices input:checked')].map(x=>x.value);if(scope==='specific'&&!targetDepartments.length){notify('اختاري إدارة واحدة على الأقل.');return}let id=Math.max(...state.knowledge.map(k=>k.id))+1,sol=document.getElementById('k3').value.split(/\n|[١٢٣٤٥٦٧٨٩][.\-]/).map(x=>x.trim()).filter(Boolean);state.knowledge.push({id,title:document.getElementById('ktitle').value,owner:cu().name,ownerId:state.employeeId||'e1',showName:document.querySelector('[name=show]:checked').value==='yes',dept:cu().dept,visibility:scope,targetDepartments,contact:cu().ext,challenge:document.getElementById('k1').value,handling:document.getElementById('k2').value,solution:sol.length?sol:[document.getElementById('k3').value],lesson:document.getElementById('k4').value,keywords:'',category:'غير مصنفة',status:'review',rating:0,uses:0,regulation:'سياسة استخدام الأجهزة والبرمجيات',date:new Date().toISOString().slice(0,10)});addKnowledgeNotification('reviewer',state.knowledge.find(k=>k.id===id),'submitted');save();showKnowledgeSuccess({title:'تم إرسال معرفتك للمراجعة',message:`شكرًا لمساهمتك، تم إرسال معرفتك إلى المراجع المعرفي في ${cu().dept} لمراجعتها وتصنيفها.`,note:'يمكنك متابعة حالة المعرفة من صفحة أثري المعرفي'})}
 
 function svg(name){
 
@@ -411,7 +451,7 @@ function impact(){
 
   uses=pubs.reduce((a,k)=>a+k.uses,0),
 
-  points=uses,
+  points=certificatePoints(),
 
   pct=Math.min(100,Math.round(points/GOAL*100)),
 
@@ -453,7 +493,7 @@ function impact(){
 
   <div class="im-reward-text"><b>مكافآتي</b><span>${points>=20?'حصلت على شهادة شكر وتقدير لمساهمتك في نشر المعرفة المؤسسية':'اجمع ٢٠ نقطة للحصول على شهادة شكر وتقدير'}</span></div>
 
-  <button class="btn btn-outline" ${points>=20?'':'disabled'} onclick="notify('جارٍ تحميل الشهادة')">تحميل الشهادة ${svg('download')}</button>
+  <button class="btn btn-outline" ${points>=20?'':'disabled'} onclick="downloadCertificate(this)">تحميل الشهادة ${svg('download')}</button>
 
  </div>
 
@@ -491,9 +531,22 @@ function impact(){
 
 }
 
-function editKnowledge(){let k=state.knowledge.find(x=>x.id===state.current);return shell(`${crumb('أثري المعرفي ← تعديل المعرفة')}${pageHead('تعديل المعرفة','حدّث المعرفة وفق ملاحظة المراجع ثم أعد إرسالها.')}<div class="notice"><b>ملاحظة المراجع المعرفي:</b> ${k.returnReason||'يرجى توضيح خطوات الحل بصورة أكثر تفصيلًا والتأكد من ارتباطها باللائحة المحددة.'}</div><form class="card" style="margin-top:18px" onsubmit="resubmit(event,${k.id})"><div class="field"><label>عنوان المعرفة</label><input id="etitle" class="input" value="${k.title}"></div><div class="grid grid-2"><div class="field"><label>ما الموقف أو التحدي؟</label><textarea id="e1" class="textarea">${k.challenge}</textarea></div><div class="field"><label>كيف تعاملت معه؟</label><textarea id="e2" class="textarea">${k.handling}</textarea></div><div class="field"><label>ما الحل الذي نجح؟</label><textarea id="e3" class="textarea">${k.solution.map((s,i)=>`${i+1}. ${s}`).join('\n')}</textarea></div><div class="field"><label>ما الدرس المستفاد؟</label><textarea id="e4" class="textarea">${k.lesson}</textarea></div></div><div class="review-footer"><button type="button" class="btn btn-outline" onclick="notify('تم حفظ التعديلات كمسودة')">حفظ التعديلات كمسودة</button><button class="btn btn-gold">إعادة الإرسال للمراجعة</button></div></form>`)}
+function editKnowledge(){
+ const k=state.knowledge.find(x=>x.id===state.current);
+ if(!k||k.owner!==cu().name||k.status!=='returned')return shell(`${pageHead('تعديل المعرفة','هذه المعرفة غير متاحة للتعديل حاليًا.')}<button class="btn btn-primary" onclick="go('impact')">العودة إلى أثري المعرفي</button>`);
+ return shell(`${crumb('أثري المعرفي ← تعديل المعرفة')}${pageHead('تعديل المعرفة','حدّث المعرفة وفق ملاحظة المراجع ثم أعد إرسالها.')}<div class="notice"><b>ملاحظة المراجع المعرفي:</b> ${escapeKnowledge(k.returnReason||'')}</div><form class="card" style="margin-top:18px" onsubmit="resubmit(event,${k.id})"><div class="field"><label>عنوان المعرفة</label><input id="etitle" class="input" required value="${escapeKnowledge(k.title)}"></div><div class="grid grid-2"><div class="field"><label>ما الموقف أو التحدي؟</label><textarea id="e1" class="textarea" required>${escapeKnowledge(k.challenge)}</textarea></div><div class="field"><label>كيف تعاملت معه؟</label><textarea id="e2" class="textarea" required>${escapeKnowledge(k.handling)}</textarea></div><div class="field"><label>ما الحل الذي نجح؟</label><textarea id="e3" class="textarea" required>${escapeKnowledge(k.solution.map((s,i)=>`${i+1}. ${s}`).join('\n'))}</textarea></div><div class="field"><label>ما الدرس المستفاد؟</label><textarea id="e4" class="textarea" required>${escapeKnowledge(k.lesson)}</textarea></div></div><div class="review-footer"><button type="button" class="btn btn-outline" onclick="saveKnowledgeEdits(${k.id})">حفظ التعديلات كمسودة</button><button class="btn btn-gold">إعادة الإرسال للمراجعة</button></div></form>`)
+}
+function saveKnowledgeEdits(id,showConfirmation=true){
+ const k=state.knowledge.find(x=>x.id===id);if(!k||k.owner!==cu().name||k.status!=='returned')return false;
+ const values=['etitle','e1','e2','e3','e4'].map(id=>document.getElementById(id).value.trim());
+ if(values.some(v=>!v)){notify('يرجى إكمال عنوان المعرفة والإجابات الأربع.');return false}
+ [k.title,k.challenge,k.handling]=values;
+ k.solution=values[3].split('\n').map(x=>x.replace(/^[0-9١-٩]+[.\-]\s*/, '').trim()).filter(Boolean);k.lesson=values[4];save();
+ if(showConfirmation)showKnowledgeSuccess({title:'تم حفظ تعديلات المعرفة',message:'تم حفظ تعديلاتك كمسودة، ويمكنك العودة لاستكمالها وإعادة إرسالها للمراجعة.',note:'حالة المعرفة ما زالت: أعيدت للتعديل'});
+ return true;
+}
 
-function resubmit(e,id){e.preventDefault();let k=state.knowledge.find(x=>x.id===id);k.title=document.getElementById('etitle').value;k.challenge=document.getElementById('e1').value;k.handling=document.getElementById('e2').value;k.solution=document.getElementById('e3').value.split('\n').map(x=>x.replace(/^\d+[.\-]\s*/,''));k.lesson=document.getElementById('e4').value;k.status='review';delete k.returnReason;state.notifications.reviewer.unshift({title:'أعيد إرسال معرفة بعد تعديلها',body:k.title,id:k.id});save();showModal('تمت إعادة إرسال المعرفة','تم حفظ تعديلاتك وإعادة إرسال المعرفة إلى المراجع المعرفي لمراجعتها من جديد.',`<button class="btn btn-primary w100" onclick="closeModal();go('impact')">الانتقال إلى أثري المعرفي</button>`)}
+function resubmit(e,id){e.preventDefault();if(!saveKnowledgeEdits(id,false))return;const k=state.knowledge.find(x=>x.id===id);k.status='review';k.resubmittedAt=new Date().toISOString();delete k.returnReason;addKnowledgeNotification('reviewer',k,'resubmitted');save();showKnowledgeSuccess({title:'تمت إعادة إرسال المعرفة',message:'تم حفظ تعديلاتك وإعادة إرسال المعرفة إلى المراجع المعرفي لمراجعتها من جديد.',note:'تغيّرت حالة المعرفة إلى: قيد المراجعة'})}
 
 function reviewerHome(){let list=state.knowledge.filter(k=>k.status!=='draft'),count=s=>state.knowledge.filter(k=>k.status===s).length;return shell(`${pageHead('مراجعة المعارف','راجع المعارف المرسلة من موظفي إدارتك، وصنّفها قبل اعتمادها ونشرها.')}<div class="grid grid-4"><div class="card metric"><span>تحتاج إلى المراجعة</span><strong>${count('review')}</strong></div><div class="card metric"><span>تم نشرها</span><strong>${count('published')}</strong></div><div class="card metric"><span>أُعيدت للتعديل</span><strong>${count('returned')}</strong></div><div class="card metric"><span>إجمالي المعارف</span><strong>${list.length}</strong></div></div><div class="tabs" style="margin-top:28px"><button class="tab active" onclick="reviewFilter('review',this)">تحتاج إلى المراجعة</button><button class="tab" onclick="reviewFilter('published',this)">منشورة</button><button class="tab" onclick="reviewFilter('returned',this)">أُعيدت للتعديل</button><button class="tab" onclick="reviewFilter('rejected',this)">المرفوضة</button><button class="tab" onclick="reviewFilter('archived',this)">المؤرشفة</button><button class="tab" onclick="reviewFilter('all',this)">الكل</button></div><div id="reviewList" class="list">${list.map(reviewItem).join('')}</div>`)}
 
@@ -507,15 +560,20 @@ function reviewerReadOnly(k){return shell(`${crumb('مراجعة المعارف 
 
 function chooseCategory(el,c){document.querySelectorAll('.radio-card').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');let k=state.knowledge.find(x=>x.id===state.current);k.category=c;save();document.querySelector('.review-footer .btn-primary').disabled=false}
 
-function returnModal(id){showModal('إرجاع المعرفة للتعديل','وضّح للموظف التعديلات المطلوبة قبل إعادة إرسال المعرفة للمراجعة.',`<textarea id="reason" class="textarea" placeholder="مثال: يرجى توضيح خطوات الحل وربطها باللائحة المناسبة."></textarea><button class="btn btn-gold w100" onclick="returnKnowledge(${id})">إرسال الملاحظة</button>`)}
+function returnModal(id){showReviewReason(id,'returned')}
+function showReviewReason(id,type){
+ const rejection=type==='rejected';
+ modal.innerHTML=`<section class="modal review-reason-dialog" role="dialog" aria-modal="true" aria-labelledby="review-reason-title"><div class="modal-head"><h2 id="review-reason-title">${rejection?'رفض المعرفة':'إرجاع المعرفة للتعديل'}</h2><button class="close" onclick="closeModal()" aria-label="إغلاق">×</button></div><p>${rejection?'اكتب سبب الرفض ليصل إلى الموظف. لن تُنشر هذه المعرفة.':'اكتب ملاحظاتك وحدّد التعديلات المطلوبة ليتمكن الموظف من تعديل معرفته.'}</p><form onsubmit="event.preventDefault();${rejection?'rejectKnowledge':'returnKnowledge'}(${id})"><div class="field"><label for="reviewReason">${rejection?'سبب الرفض':'ملاحظات المراجع'} <span aria-hidden="true">*</span></label><textarea id="reviewReason" class="textarea" required placeholder="${rejection?'وضّح سبب رفض المعرفة…':'وضّح التعديلات المطلوبة…'}"></textarea><p id="reviewReasonError" class="reason-error hidden" role="alert">${rejection?'يرجى كتابة سبب الرفض.':'يرجى كتابة ملاحظاتك قبل الإرجاع.'}</p></div><div class="review-reason-actions"><button class="btn ${rejection?'btn-danger':'btn-primary'}" type="submit">${rejection?'تأكيد الرفض':'إرسال الملاحظات وإرجاع المعرفة'}</button><button class="btn btn-outline" type="button" onclick="closeModal()">إلغاء</button></div></form></section>`;modal.classList.remove('hidden');document.getElementById('reviewReason').focus();
+}
+function reviewReasonValue(){const value=document.getElementById('reviewReason').value.trim();document.getElementById('reviewReasonError').classList.toggle('hidden',Boolean(value));return value}
 
-function returnKnowledge(id){let k=state.knowledge.find(x=>x.id===id);k.status='returned';k.returnReason=document.getElementById('reason').value||'يرجى توضيح خطوات الحل بصورة أكثر تفصيلًا والتأكد من ارتباطها باللائحة المحددة.';state.notifications.employee.unshift({title:'أُعيدت معرفتك للتعديل',body:k.title,id:k.id,route:'edit'});save();closeModal();go('reviewer-home');notify('أُعيدت المعرفة إلى الموظف للتعديل.')}
+function returnKnowledge(id){const reason=reviewReasonValue();if(!reason)return;const k=state.knowledge.find(x=>x.id===id);if(!k||k.status!=='review')return;k.status='returned';k.returnReason=reason;delete k.rejectReason;addKnowledgeNotification('employee',k,'returned');save();render();showKnowledgeSuccess({title:'تمت إعادة المعرفة للتعديل',message:'تم إرسال ملاحظاتك إلى الموظف، وسيصله إشعار بسبب إرجاع المعرفة.',badge:'أُعيدت للتعديل',reviewer:true})}
 
-function rejectModal(id){showModal('رفض المعرفة','اكتب سبب الرفض ليصل إلى الموظف. لن تُنشر هذه المعرفة.',`<textarea id="rejectReason" class="textarea" placeholder="مثال: المعرفة مكررة أو لا ترتبط بعمل الإدارة."></textarea><button class="btn btn-danger w100" style="margin-top:12px" onclick="rejectKnowledge(${id})">تأكيد الرفض</button>`)}
+function rejectModal(id){showReviewReason(id,'rejected')}
 
-function rejectKnowledge(id){let k=state.knowledge.find(x=>x.id===id);k.status='rejected';k.rejectReason=document.getElementById('rejectReason').value||'لم تستوفِ المعرفة شروط النشر.';state.notifications.employee.unshift({title:'تم رفض معرفتك',body:k.title,id:k.id,route:'impact'});save();closeModal();go('reviewer-home');notify('تم رفض المعرفة وإشعار الموظف.')}
+function rejectKnowledge(id){const reason=reviewReasonValue();if(!reason)return;const k=state.knowledge.find(x=>x.id===id);if(!k||k.status!=='review')return;k.status='rejected';k.rejectReason=reason;delete k.returnReason;addKnowledgeNotification('employee',k,'rejected');save();render();showKnowledgeSuccess({title:'تم رفض المعرفة',message:'تم إرسال سبب الرفض إلى الموظف، وسيصله إشعار يوضح السبب.',badge:'مرفوضة',reviewer:true,danger:true})}
 
-function approve(id){let k=state.knowledge.find(x=>x.id===id);k.status='published';k.date=new Date().toISOString().slice(0,10);state.notifications.employee.unshift({title:'تم اعتماد ونشر معرفتك',body:k.title,id:k.id,route:'detail'});save();showModal('تم اعتماد ونشر المعرفة',`تم نشر «${k.title}» وأصبحت متاحة للموظفين في منصة بصمة معرفة.`,`<button class="btn btn-primary w100" onclick="closeModal();go('reviewer-home')">العودة إلى قائمة المعارف</button>`)}
+function approve(id){const k=state.knowledge.find(x=>x.id===id);if(!k||k.status!=='review')return;k.status='published';k.date=new Date().toISOString().slice(0,10);delete k.returnReason;delete k.rejectReason;addKnowledgeNotification('employee',k,'published');save();render();showKnowledgeSuccess({title:'تم اعتماد ونشر المعرفة',message:`تم نشر «${k.title}» وأصبحت متاحة للموظفين في منصة بصمة معرفة، وأُرسل إشعار إلى صاحب المعرفة.`,badge:'منشورة',reviewer:true})}
 
 function autoArchive(){const archiveAfterDays=365,limit=archiveAfterDays*24*60*60*1000,now=Date.now();state.knowledge.forEach(k=>{if(k.status==='published'&&now-new Date(k.date).getTime()>limit)k.status='archived'});save()}
 
@@ -673,10 +731,19 @@ function managerHome(){
 
  </div>`)}
 
-function toggleNotifications(){state.notifOpen=!state.notifOpen;render()}function openNotification(i){let n=state.notifications[state.role][i];state.notifications[state.role].splice(i,1);save();if(n.route)go(n.route,n.id);else if(state.role==='reviewer')go('review-detail',n.id);else go('detail',n.id)}
+function toggleNotifications(){state.notifOpen=!state.notifOpen;render()}
+function openNotification(i){
+ const n=state.notifications[state.role][i];if(!n)return;
+ const k=state.knowledge.find(k=>k.id===n.id);
+ if(!k){notify('هذه المعرفة لم تعد متاحة.');return}
+ state.notifications[state.role].splice(i,1);save();
+ if(state.role==='reviewer')go('review-detail',k.id);
+ else if(k.status==='returned'&&k.owner===cu().name)go('edit',k.id);
+ else go('detail',k.id);
+}
 
 function showModal(title,text,actions){modal.innerHTML=`<div class="modal"><div class="modal-head"><h2>${title}</h2><button class="close" onclick="closeModal()">×</button></div><p>${text}</p>${actions||''}</div>`;modal.classList.remove('hidden')}function closeModal(){modal.classList.add('hidden');modal.innerHTML=''}
 
-function render(){let routes={login,regulationsPage,employeeHome,browse,detail,ask,minute,video,submit,impact,editKnowledge,reviewerHome,reviewDetail,managerHome};let key=state.route.replace(/-([a-z])/g,(_,x)=>x.toUpperCase());app.innerHTML=(routes[key]||login)()}
+function render(){let routes={login,regulationsPage,employeeHome,browse,detail,ask,minute,video,submit,impact,edit:editKnowledge,editKnowledge,reviewerHome,reviewDetail,managerHome};let key=state.route.replace(/-([a-z])/g,(_,x)=>x.toUpperCase());app.innerHTML=(routes[key]||login)()}
 
 autoArchive();render();
