@@ -2,8 +2,8 @@
 const CERTIFICATE_THRESHOLD = 20;
 let certificateFontReady;
 function certificatePoints(){
- if(state.role!=='employee') return 0;
- return state.knowledge.filter(k=>k.status==='published'&&(k.ownerId?k.ownerId===state.employeeId:k.owner===cu().name)).reduce((sum,k)=>sum+Math.max(0,Number(k.uses)||0),0);
+ if(!['employee','reviewer'].includes(state.role)) return 0;
+ return state.knowledge.filter(k=>k.status==='published'&&ownsKnowledge(k)).reduce((sum,k)=>sum+Math.max(0,Number(k.uses)||0),0);
 }
 function certificatePdf(jpeg,width,height){
  const encode=s=>new TextEncoder().encode(s), chunks=[], offsets=[0]; let size=0;
